@@ -41,4 +41,21 @@ body {
   );
   color: #222;
   min-height: 100vh;
+  font-family: 'Poppins',Arial, Helvetica, sans-serif;
+  position:relative;
+}
+
+.sakura{
+  display: none;
+}
+
+
+@media (min-width:1200px){
+.sakura{
+    position: absolute;
+    right:0;
+    bottom:0;
+    display: block;
+    z-index:-1;
+}
 }

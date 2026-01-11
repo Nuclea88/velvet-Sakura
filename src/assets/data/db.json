@@ -1,0 +1,22 @@
+{
+  "accounts": [
+    {
+      "id": "0",
+      "name": "Jenny",
+      "email": "fake@email.com",
+      "password": "12345678"
+    },
+    {
+      "id": "4e06",
+      "name": "Jenny1",
+      "email": "patata@hotmail.com",
+      "password": "12345678"
+    },
+    {
+      "id": "dafc",
+      "name": "Jenny 1234",
+      "email": "hola@hotmail.com",
+      "password": "12345678"
+    }
+  ]
+}
