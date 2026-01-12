@@ -19,5 +19,20 @@ export const apiSakura = () => {
         }
     }
 
-    return { getDeck };
+    const getCardById = async (id) => {
+        try {
+            const response = await axios.get(`${url}${id}`);
+            const card = response.data;
+            return {
+                spanishName: card.spanishName,
+                sakuraCard: card.sakuraCard,
+                meaning: card.meaning
+            };
+        } catch (error) {
+            console.error(`Error al obtener la carta con el id ${id}:`, error);
+            throw error;
+        }
+    };
+
+    return { getDeck, getCardById };
 }
