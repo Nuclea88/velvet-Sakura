@@ -18,5 +18,20 @@
       "email": "hola@hotmail.com",
       "password": "12345678"
     }
+  ],
+  "readings":[
+    {
+      "userId": "0",
+      "id": "0",
+      "date": "12.02.2026",
+      "name": "default"
+    },
+    {
+      "userId": "0",
+      "id": "1",
+      "date": "12.02.2026",
+      "name": "default2"
+    }
   ]
+
 }
