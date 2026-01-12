@@ -49,7 +49,7 @@ function LogForm(){
          const loggedUser = { name: form.name, avatar: Avatar };
          localStorage.setItem("user", JSON.stringify(loggedUser));
          window.dispatchEvent(new Event("storage"));
-        navigate("/prueba");
+        navigate("/readings");
       } catch (error) {
         alert("Error al conectar con el servidor");
       }
@@ -70,7 +70,7 @@ function LogForm(){
             </div>
 
             <div className={styles.fieldbtn_form}>
-            <Button BtnClass="SubmBtn" text="Confirmar" path="" />
+            <Button BtnClass="subm_btn" text="Confirmar" path="" />
             <Link to="/register" className={styles.register}>Regístrate</Link>
             </div>
         </form>

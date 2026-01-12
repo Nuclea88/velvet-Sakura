@@ -4,6 +4,7 @@ import Home from "../pages/Home/Home";
 import Prueba from "../pages/prueba"; // esto se borra al final
 import Register from "../pages/Register/Register";
 import Info from "../pages/DataResults/DataResults";
+import Start from "../pages/Start/Start";
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -24,7 +25,12 @@ export const router = createBrowserRouter([
             {
             path:"/info",
             Component: Info
+            },
+            {
+            path:"/readings",
+            Component: Start    
             }
+
             ]
     }
 ])
