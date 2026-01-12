@@ -17,6 +17,32 @@
       "name": "Jenny 1234",
       "email": "hola@hotmail.com",
       "password": "12345678"
+    },
+    {
+      "id": "0e8a",
+      "name": "Nuclea",
+      "email": "Nuclea@gmail.com",
+      "password": "12345678"
+    },
+    {
+      "id": "d1e6",
+      "name": "Lorena",
+      "email": "Lorena@gmail.com",
+      "password": "12345678"
+    },
+    {
+      "id": "da66",
+      "name": "Lorena1",
+      "email": "Lorena1@gmail.com",
+      "password": "12345678"
+    }
+  ],
+  "readings": [
+    {
+      "idAccount": "0",
+      "id": "0",
+      "name": "default",
+      "date": ""
     }
   ]
 }

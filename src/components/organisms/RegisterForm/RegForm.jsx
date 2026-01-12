@@ -62,7 +62,7 @@ function RegForm(){
   const validateName = (value,exists) => {
     if (value.trim() === "") return "Campo vacío";
     if (value.trim().length < 2) return "Debe tener mínimo 2 carácteres";
-    if (exists) return "Ya está registrado";
+    if (exists) return "El usuario ya existe";
     return "";
   };
   const validateEmail = (value,exists) => {

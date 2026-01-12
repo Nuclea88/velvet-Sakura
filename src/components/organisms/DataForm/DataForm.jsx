@@ -10,7 +10,7 @@ const location = useLocation();
         <>
         <div className={styles.data_card}>
             <img src={Avatar} alt={name} title={name} className={styles.avatar}/>
-            <h3 className={styles.title_data}>¡Bienvenida {name} a Velvet Sakura!</h3>
+            <h3 className={styles.title_data}>¡Bienvenida, {name}, a Velvet Sakura!</h3>
             <p>Estos son tus datos. Guardalos para poder acceder a tu cuenta:</p>
             <ul>
                 <li><strong>Usuario: </strong> {name}</li>
