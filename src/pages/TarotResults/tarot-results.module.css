@@ -1,0 +1,49 @@
+.container {
+  padding: 2rem;
+}
+
+.cards {
+  margin-top: 1.5rem;
+}
+
+.cardBlock {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  backdrop-filter: blur(6px);
+}
+
+.cardTitle {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.keyword {
+  margin-top: 0.5rem;
+  font-weight: 600;
+  color: #a12c6a;
+}
+
+.description {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
+.primaryButton {
+  background-color: #a12c6a;
+  color: white;
+  padding: 0.6rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 500;
+}
+
+.secondaryButton {
+  background: transparent;
+  border: 1px solid #a12c6a;
+  color: #a12c6a;
+  padding: 0.6rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 500;
+}
