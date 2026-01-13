@@ -10,3 +10,34 @@ top: 645px;
 
 background: url(pen.png);
 border: 1px solid #000000;}*/
+
+
+.cardContainer {
+    display: flex;
+    align-items: center; 
+    flex-direction: column;          
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.infoSection {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;           
+}
+
+.nameRow {
+    display: flex;
+    align-items: center;
+    gap: 5px;   
+    padding-bottom: 25px;         
+}
+
+.penIcon {
+    width: 20px;         
+    height: 20px;
+    background-image: url('../../../assets/images/pen1.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}

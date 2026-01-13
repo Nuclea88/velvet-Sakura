@@ -30,9 +30,10 @@ const Header = () => {
 
     const navigate = useNavigate();
     const handleLogout = () => {
-        localStorage.removeItem("user");
+       /* localStorage.removeItem("user");
         setUser(null);
-        navigate("/");
+        navigate("/");*/
+        navigate("/history")
     };
 
   return (

@@ -1,0 +1,11 @@
+
+.header_section{
+    justify-content: space-between;
+    width: 90%;
+}
+
+.edit_user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
