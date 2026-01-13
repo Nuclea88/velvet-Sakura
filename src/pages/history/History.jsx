@@ -1,4 +1,4 @@
-import DeleteButton from "../../components/molecules/deleteButton.jsx/deleteButton";
+import EditButton from "../../components/molecules/editButton/EditButton";
 import HistoryCards from "../../components/organisms/historyCards/HistoryCards";
 import styles from "./history.module.css";
 
@@ -15,16 +15,13 @@ import styles from "./history.module.css";
             <p>Para borrar el  historial haz click en Borrar</p>
             </div>
             <div className={styles.edit_user}>
-                <button>E</button>
+                <EditButton />
                 <span>Editar nombre usuario</span>
             </div>
           </header>
           <section>
               <HistoryCards userId="0"/>
           </section>
-          <footer>
-            <button>Borrar</button>
-          </footer>
         </main>
         </>
 ) } 
