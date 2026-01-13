@@ -33,11 +33,3 @@ border: 1px solid #000000;}*/
     padding-bottom: 25px;         
 }
 
-.penIcon {
-    width: 20px;         
-    height: 20px;
-    background-image: url('../../../assets/images/pen1.png'); 
-    background-size: contain;
-    background-repeat: no-repeat;
-    cursor: pointer;
-}
