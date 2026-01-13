@@ -22,6 +22,26 @@ describe("Tarot card selection logic", () => {
     expect(() => selectTarotCards(deck)).toThrow();
   });
 
+  it("never returns duplicated cards in a reading", () => {
+    const deck = ["A", "B", "C", "D", "E"];
+
+    for (let i = 0; i < 50; i++) {
+      const result = selectTarotCards(deck);
+      const uniqueCards = new Set(result);
+
+      expect(uniqueCards.size).toBe(result.length);
+    }
+  });
+
+  it("returns a random selection (order may vary between executions)", () => {
+    const deck = ["A", "B", "C", "D", "E", "F"];
+
+    const result1 = selectTarotCards(deck);
+    const result2 = selectTarotCards(deck);
+
+    expect(result1).not.toEqual(result2);
+  });
+
   it("assigns cards to past, present and future positions", () => {
     const cards = ["The Fool", "The Magician", "The Empress"];
 
@@ -34,7 +54,7 @@ describe("Tarot card selection logic", () => {
     });
   });
 
-  it("does not allow reveal with less than 3 cards or more than 3 cards", () => {
+  it("does not allow reveal with less than or more than 3 cards", () => {
     expect(canReveal([])).toBe(false);
     expect(canReveal(["A"])).toBe(false);
     expect(canReveal(["A", "B"])).toBe(false);
@@ -47,10 +67,10 @@ describe("Tarot card selection logic", () => {
 
   it("parses tarot card data coming from the API", () => {
     const apiCard = {
+      id: 1,
       name: "The Fool",
       meaning: "New beginnings, optimism, trust in life",
       image: "https://example.com/fool.jpg",
-      id: 0,
       randomField: "should not be used",
     };
 
