@@ -13,10 +13,10 @@ const DeleteButton =({id, onDelete}) =>{
             })
             .catch(err => console.error("Error al borrar:", err));
             };
-return(
-    <>
-<button className={styles.subm_btn} onClick={(handleDelete)}>Eliminar</button>
-</>
+    return(
+        <>
+            <button className={styles.subm_btn} onClick={(handleDelete)}>Eliminar</button>
+        </>
 )
 }
 export default DeleteButton;

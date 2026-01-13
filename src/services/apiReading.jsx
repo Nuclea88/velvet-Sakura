@@ -20,7 +20,7 @@ const apiReading=()=>{
 
     
     const deleteReading = async (id) => {
-        const stringId = String(id);
+        const stringId = String(id); //se podria borrar?
         const response = await axios.delete(`${url}/${id}`);
         return response;
     }

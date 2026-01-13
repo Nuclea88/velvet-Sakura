@@ -2,6 +2,7 @@ import apiReading from "../../../services/apiReading"
 import { useState, useEffect } from "react"
 import ReadingCard from "../../molecules/ReadingCard/ReadingCard";
 import styles from "./history-cards.module.css"
+import DropButton from "../../atoms/dropButton/DropButton";
 
 const HistoryCards = ({userId}) => {
     const [reading,setReading]= useState([]);
@@ -29,6 +30,7 @@ return(
         />
 ))}
     </div>
+    <DropButton userId= {userId} onDelete={triggerRefresh}/>
     </>
 )
 }
