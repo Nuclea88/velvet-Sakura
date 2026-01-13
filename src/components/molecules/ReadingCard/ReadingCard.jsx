@@ -1,7 +1,7 @@
-import Button from "../../atoms/Button/Button.jsx";
+import DeleteButton from "../../atoms/deleteButton.jsx/deleteButton.jsx";
 import styles from "./reading-card.module.css";
 
-const ReadingCard = ({date, name}) =>{
+const ReadingCard = ({date, name, id, onDelete}) =>{
     return( 
        <div className={styles.cardContainer}>
             <img src="src/assets/images/historial.png" alt="iconoHistorial"></img>
@@ -10,7 +10,7 @@ const ReadingCard = ({date, name}) =>{
                 <div className={styles.penIcon}></div> 
                 <span>{name}</span>
             </div>
-            <Button BtnClass="SubmBtn" text="Eliminar" path="" /> 
+            <DeleteButton id={id} onDelete={onDelete} /> 
         </div>
     )
 }

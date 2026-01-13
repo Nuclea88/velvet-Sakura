@@ -5,6 +5,8 @@ import styles from "./history-cards.module.css"
 
 const HistoryCards = ({userId}) => {
     const [reading,setReading]= useState([]);
+    const [refresh, setRefresh] = useState(false);
+    const triggerRefresh = () => setRefresh(prev => !prev);
     
     const dbReading = apiReading();
 
@@ -12,7 +14,7 @@ const HistoryCards = ({userId}) => {
     dbReading.getByUserId(userId).then(data =>{
         setReading(data)
     })
- }, [])
+ }, [userId, refresh]);
 
 return(
     <>
@@ -22,6 +24,8 @@ return(
             key={item.id} 
             date={item.date} 
             name={item.name} 
+            id={item.id}
+            onDelete= {triggerRefresh}
         />
 ))}
     </div>

@@ -1,3 +1,4 @@
+import DeleteButton from "../../components/atoms/deleteButton.jsx/deleteButton";
 import HistoryCards from "../../components/organisms/historyCards/HistoryCards";
 import styles from "./history.module.css";
 

@@ -2,7 +2,7 @@ import axios from "axios";
 
 const apiReading=()=>{
     const url="http://localhost:3000/readings";
-
+    
 
     /*const addReading = async (dataForm) => {
         const response = await axios.post(url, dataForm);
@@ -20,6 +20,7 @@ const apiReading=()=>{
 
     
     const deleteReading = async (id) => {
+        const stringId = String(id);
         const response = await axios.delete(`${url}/${id}`);
         return response;
     }
