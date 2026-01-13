@@ -1,0 +1,124 @@
+.deck_section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+    width: 100%;
+}
+
+.shuffle_btn {
+    padding: 12px 24px;
+    border-radius: var(--radius-md);
+    background: linear-gradient(to right, var(--color-star-yellow), var(--color-magic-pink));
+    border: 1px solid var(--color-border-soft);
+    font-weight: bold;
+    font-family: var(--font-primary);
+    cursor: pointer;
+    transition: var(--transition-soft);
+    box-shadow: 0 4px 10px var(--color-shadow-soft);
+}
+
+.shuffle_btn:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+.main_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+}
+
+.deck_track {
+    display: flex;
+    overflow-x: auto;
+    gap: -65px;
+    padding: 40px 20px;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.deck_track::-webkit-scrollbar {
+    display: none;
+}
+
+.card_item {
+    flex: 0 0 auto;
+    width: 100px;
+    transition: var(--transition-soft);
+    cursor: pointer;
+    position: relative;
+}
+
+.card_ghost {
+    opacity: 0.2;
+    transform: scale(0.85);
+    filter: grayscale(1) blur(2px);
+    pointer-events: none;
+}
+
+.shuffling_flash {
+    animation: magicFlash 0.5s ease-in-out;
+}
+
+@keyframes magicFlash {
+    0% { filter: brightness(1); transform: scale(1); }
+    50% {
+        filter: brightness(2) drop-shadow(0 0 20px var(--color-magic-pink));
+        transform: scale(1.02) rotate(1deg);
+    }
+    100% { filter: brightness(1); transform: scale(1); }
+}
+
+.arrow {
+    display: none;
+}
+
+
+@media (min-width: 1200px) {
+    .deck_track {
+        gap: 15px;
+        max-width: 900px;
+        mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    }
+
+    .card_item {
+        width: 115px;
+    }
+
+    .card_item:hover {
+        transform: translateY(-20px) scale(1.1);
+        z-index: 10;
+    }
+
+    .card_item img {
+        border-radius: var(--radius-sm);
+        box-shadow: 0 8px 20px var(--color-shadow-soft);
+        border: 2px solid var(--color-cream-white);
+    }
+
+    .arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        background: var(--color-cream-white);
+        border: 1px solid var(--color-sakura-pink);
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 1.2rem;
+        color: #888;
+        transition: var(--transition-soft);
+        z-index: 20;
+    }
+
+    .arrow:hover {
+        background: var(--color-magic-pink);
+        color: white;
+        transform: scale(1.1);
+    }
+}

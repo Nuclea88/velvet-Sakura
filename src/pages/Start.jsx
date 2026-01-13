@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { apiSakura } from '../services/api';
+import Deck from '../components/molecules/Deck/Deck';
 
 const Start = () => {
     const [deck, setDeck] = useState([]);
@@ -9,6 +10,11 @@ const Start = () => {
         present: null,
         future: null
     });
+
+    const shuffleCards = () => {
+        const shuffled = [...deck].sort(() => Math.random() - 0.5);
+        setDeck(shuffled);
+    };
 
     const handleCardClick = (card) => {
         let position = null;
@@ -27,22 +33,25 @@ const Start = () => {
         const loadData = async () => {
             try {
                 const data = await apiSakura().getDeck();
-                const shuffledDeck = [...data].sort(() => Math.random() - 0.5);
-                setDeck(shuffledDeck);
-                console.log("¡Mazo mezclado y cargado con éxito!", shuffledDeck);
+                const initialData = [...data].sort(() => Math.random() - 0.5);
+                setDeck(initialData);
+                console.log("¡Mazo mezclado y cargado con éxito!", initialData);
             } catch (error) {
                 console.error("Error al cargar el mazo:", error);
             }
         };
 
-        loadData(); deck
+        loadData();
     }, []);
 
     return (
         <div>
             <h1>Elige 3 cartas para el orden de pasado, presente y futuro</h1>
-            <p>Cartas listas en el mazo: {deck.length}</p>{/* solo para verificar que las cartas se cargaron y se van restando en cada click */}
-            {/* CardCarousel aquí */}
+        <Deck
+            deck={deck}
+            onCardClick={handleCardClick}
+            onShuffle={shuffleCards}
+        />
         </div>
     );
 }
