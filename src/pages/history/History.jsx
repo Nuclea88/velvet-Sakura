@@ -1,4 +1,4 @@
-import EditButton from "../../components/molecules/editButton/EditButton";
+import EditButton from "../../components/atoms/editButton/EditButton";
 import HistoryCards from "../../components/organisms/historyCards/HistoryCards";
 import styles from "./history.module.css";
 
@@ -11,8 +11,8 @@ import styles from "./history.module.css";
           <header className={styles.header_section}>
             <div>
             <h3>Bienvenida {name} a tu historial de lecturas</h3>
-            <p>Para eliminar un historial haz click en Eliminar</p>
-            <p>Para borrar el  historial haz click en Borrar</p>
+            <p>Para eliminar una lectura haz click en Eliminar</p>
+            <p>Para borrar el historial haz click en Borrar</p>
             </div>
             <div className={styles.edit_user}>
                 <EditButton />
