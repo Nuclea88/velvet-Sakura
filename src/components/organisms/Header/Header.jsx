@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router";
 import Logo from "../../../assets/images/Logo.png";
 import ProfileImg from "../../../assets/images/profile_image.png";
 import styles from "./header.module.css";
@@ -21,19 +20,26 @@ const Header = () => {
      }, []);
 
     const navigate = useNavigate();
-    const handleLogout = () => {
-       logout();
-        navigate("/");
-    };
+
+const handleTitleClick = () => {
+  if (user) {
+    navigate("/readings");
+  } else {
+    navigate("/");
+  }
+}
+
+
+  const handleLogout = () => { 
+    logout(); navigate("/"); 
+  }
 
   return (
     <header className={styles.header}>
       <img src={Logo} alt="Logo Velvet Sakura" className={styles.logo_header} />
-
       <div className={styles.titles}>
-        <Link to="/" className={styles.main_title}>
-          <h1>Velvet Sakura</h1>
-        </Link>
+          <h1 className={styles.main_title} onClick={handleTitleClick}>Velvet Sakura</h1>
+
         <h2 className={styles.subtitle_header}>
         {isMobile && user ? (
             <span className={styles.welcome_container}>Bienvenida {user.name}
@@ -60,5 +66,6 @@ const Header = () => {
     </header>
   );
 };
+
 
 export default Header;
