@@ -7,6 +7,7 @@ import Info from "../pages/DataResults/DataResults";
 import Start from "../pages/Start/Start";
 import TarotResult from "../pages/TarotResults/TarotResult";
 
+import History from "../pages/history/History";
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -35,6 +36,10 @@ export const router = createBrowserRouter([
             {
             path: "/tarot-result",
             Component: TarotResult
+            },
+            {
+            path:"/history",
+            Component: History
             }
             ]
     }
