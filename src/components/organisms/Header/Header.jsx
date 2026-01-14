@@ -4,13 +4,14 @@ import Logo from "../../../assets/images/Logo.png";
 import ProfileImg from "../../../assets/images/profile_image.png";
 import styles from "./header.module.css";
 import { useNavigate } from "react-router";
+import useAuth from "../../../hooks/useAuth";
 
 const Header = () => {
-  const [user, setUser] = useState(
-        JSON.parse(localStorage.getItem("user"))
-    );
-    const [isMobile, setIsMobile] = useState(window.innerWidth <= 932);
+    const { user, logout } = useAuth();
 
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 932);
+    
+    
     useEffect(() => {
         const handleResize = () => {
             setIsMobile(window.innerWidth <= 932);
@@ -19,19 +20,9 @@ const Header = () => {
         return () => window.removeEventListener("resize", handleResize);
      }, []);
 
-    useEffect(() => {
-        const handleStorage = () => {
-            const updatedUser = localStorage.getItem("user");
-            setUser(updatedUser ? JSON.parse(updatedUser) : null);
-        };
-        window.addEventListener("storage", handleStorage);
-        return () => window.removeEventListener("storage", handleStorage);
-    }, []);
-
     const navigate = useNavigate();
     const handleLogout = () => {
-        localStorage.removeItem("user");
-        setUser(null);
+       logout();
         navigate("/");
     };
 

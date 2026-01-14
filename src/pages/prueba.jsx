@@ -5,32 +5,38 @@ import { useLocation } from "react-router";
 const Prueba = () => {
   const { state } = useLocation();
 
-  const { pasado, presente, futuro } = state || {};
+  const { past, present, future } = state || {};
 
   if (!state) {
     return <p>No hay cartas seleccionadas</p>;
   }
 
   return (
-    <div>
+    <div style={{display:"flex"}}>
       <h2>Resultado de la tirada</h2>
 
       <div>
         <h3>Pasado</h3>
-        <img src={pasado.sakuraCard} />
-        <p>{pasado.meaning}</p>
+        <p>{past.spanishName}</p>
+        <img src={past.sakuraCard} />
+        <p>{past.meaning}</p>
+        <p>{past.id}</p>
       </div>
 
       <div>
         <h3>Presente</h3>
-        <img src={presente.sakuraCard} />
-        <p>{presente.meaning}</p>
+        <p>{present.spanishName}</p>
+        <img src={present.sakuraCard} />
+        <p>{present.meaning}</p>
+        <p>{present.id}</p>
       </div>
 
       <div>
         <h3>Futuro</h3>
-        <img src={futuro.sakuraCard} />
-        <p>{futuro.meaning}</p>
+        <p>{future.spanishName}</p>
+        <img src={future.sakuraCard} />
+        <p>{future.meaning}</p>
+        <p>{future.id}</p>
       </div>
     </div>
   );

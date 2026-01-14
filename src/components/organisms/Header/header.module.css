@@ -16,7 +16,7 @@ header{
 .main_title{
     color: black;
     font-weight: bold;
-    font-size: 16px;
+    font-size: clamp(14px, 14px, 18px);
     text-decoration: none;
 }
 

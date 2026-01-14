@@ -5,6 +5,7 @@ import apiAccount from "../../../services/apiAccount";
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router";
 import Avatar from "../../../assets/images/profile_image.png";
+import useAuth from "../../../hooks/useAuth";
 
 function LogForm(){
     const [form, setForm] = useState({name: "", email: "", password:""})
@@ -12,6 +13,7 @@ function LogForm(){
     ])
     const dbAccount = apiAccount();
     const navigate = useNavigate();
+    const { login } = useAuth();
 
 
     useEffect(() => {
@@ -46,9 +48,11 @@ function LogForm(){
               alert("Contraseña incorrecta");
               return;
           }
-         const loggedUser = { name: form.name, avatar: Avatar };
-         localStorage.setItem("user", JSON.stringify(loggedUser));
-         window.dispatchEvent(new Event("storage"));
+         const loggedUser = { 
+            name: form.name, 
+            avatar: Avatar 
+        };
+        login(loggedUser);
         navigate("/readings");
       } catch (error) {
         alert("Error al conectar con el servidor");
