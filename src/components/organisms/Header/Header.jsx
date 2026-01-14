@@ -42,11 +42,17 @@ const handleTitleClick = () => {
 
         <h2 className={styles.subtitle_header}>
         {isMobile && user ? (
-            <span className={styles.welcome_container}>Bienvenida {user.name}
-            <button
+            <span className={styles.welcome_container}>Bienvenida 
+              <button 
+                className={styles.invisible_button}
+                onClick={() =>navigate("/history")}>
+                {user.name}
+              </button>
+              <button
                 onClick={handleLogout}
                 className={styles.logout_icon}
-                title="Cerrar sesión">⏻</button>
+                title="Cerrar sesión">⏻
+              </button>
             </span>
         ) : ("Cartas del destino")}
         </h2>
@@ -55,12 +61,15 @@ const handleTitleClick = () => {
       {user && (
         <div className={styles.field_profile}>
           <button
-            onClick={handleLogout}
+            onClick={() =>navigate("/history")}
             className={styles.avatar_btn}
             title="Cerrar sesión">
             <img src={user.avatar || ProfileImg} alt="" className={styles.profile_img}/>
           </button>
-          <p className={styles.profile_name}>{user.name}</p>
+          <p className={styles.profile_name}>{user.name} <button
+                onClick={handleLogout}
+                className={styles.logout_icon}
+                title="Cerrar sesión">⏻</button></p>
         </div>
       )}
     </header>
