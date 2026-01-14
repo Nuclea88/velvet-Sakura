@@ -69,14 +69,6 @@
   ],
   "readings": [
     {
-      "idAccount": "0",
-      "id": "0",
-      "name": "default",
-      "date": ""
-    }
-  ],
-  "readings": [
-    {
       "userId": "0",
       "id": "1",
       "date": "12.02.2026",
@@ -98,13 +90,13 @@
       "userId": "0",
       "id": "4",
       "date": "12.02.2026",
-      "name": "default2"
+      "name": "this is a proof"
     },
     {
       "userId": "0",
       "id": "5",
       "date": "12.02.2026",
-      "name": "default2"
+      "name": "hola"
     },
     {
       "userId": "0",
