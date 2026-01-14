@@ -1,0 +1,14 @@
+.card {
+    display: flex;
+    flex-wrap: wrap;    
+    gap: 20px;          
+    justify-content: left;
+    padding: 20px;
+    padding-left: 100px;
+}
+.drop_btn{
+    display:flex;
+    width: 100%;
+    justify-content: center;
+    padding: 20px;
+}
