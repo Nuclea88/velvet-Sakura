@@ -12,6 +12,7 @@ function RegForm(){
     ])
   const dbAccount = apiAccount();
   const navigate = useNavigate();
+  const patterName=/^\S+$/;
   const patternEmail=/^([A-Za-z0-9_-]+\@[\da-z\.-]+\.[a-z\.]{2,6})$/;
   const [formErrors, setFormErrors] = useState({
       name: "",
@@ -36,10 +37,12 @@ function RegForm(){
 
   const handleSubmit = async (event) => {
         event.preventDefault();
-        if (!form.name || !form.email || !form.password) {
+        if (!form.name.trim() || !form.email || !form.password) {
           alert("Se requieren todos los campos");
           return;
         }
+
+        
         const existsName = await checkNameExists(form.name);
         const existsEmail = await checkEmailExists(form.email);
         const newErrors = {
@@ -62,6 +65,7 @@ function RegForm(){
   const validateName = (value,exists) => {
     if (value.trim() === "") return "Campo vacío";
     if (value.trim().length < 2) return "Debe tener mínimo 2 carácteres";
+    if (!patterName.test(value)) return "No se aceptan espacios en blanco";
     if (exists) return "Ya está registrado";
     return "";
   };
@@ -106,7 +110,7 @@ function RegForm(){
             </div>
 
             <div className={styles.fieldbtn_form}>
-            <Button BtnClass="SubmBtn" text="Confirmar" path="" />
+            <Button BtnClass="subm_btn" text="Confirmar" path="" />
             </div>
         </form>
         </>
