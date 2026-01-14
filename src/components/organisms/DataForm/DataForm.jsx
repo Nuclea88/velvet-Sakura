@@ -19,7 +19,7 @@ const location = useLocation();
             </ul>
         </div>
         <div className={styles.field_btnResults}>
-        <Button BtnClass="SubmBtn" text="Inicio" path="/"/>
+        <Button BtnClass="subm_btn" text="Inicio" path="/"/>
         </div>
         </>
     )

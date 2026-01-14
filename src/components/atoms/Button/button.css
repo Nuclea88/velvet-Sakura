@@ -1,4 +1,4 @@
-.Subm_btn{
+.subm_btn{
     width:173px;
     height: 54px;
     border-radius: 20px;
@@ -10,13 +10,13 @@
     cursor: pointer;
 }
 
-.Subm_btn:hover{
+.subm_btn:hover{
     background: linear-gradient(to right, #E7F5F0, #F3C0C0);
     transform: scale(1.08);
 
 }
 
-.Subm_btn:active {
+.subm_btn:active {
     background: radial-gradient(circle, #FFD6E7, #E6F7FF);
     transform: scale(0.97);
 }

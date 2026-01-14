@@ -1,0 +1,164 @@
+import styles from "./board-card.module.css";
+import { useEffect, useState } from "react";
+import Deck from "../../molecules/Deck/Deck";
+import { apiSakura } from "../../../services/api";
+import { useNavigate } from "react-router";
+
+
+const BoardCards = () => {
+  const [deck, setDeck] = useState([]);
+  const navigate = useNavigate();
+  const [slots, setSlots] = useState({
+    past: null,
+    present: null,
+    future: null
+  });
+  const canReveal = slots.past && slots.present && slots.future;
+  const [revealed, setRevealed] = useState(false);
+
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const data = await apiSakura().getDeck();
+        setDeck(data);
+      } catch (error) {
+        console.error("Error cargando el mazo:", error);
+      }
+    };
+    loadData();
+  }, []);
+
+
+  const placeCard = (card) => {
+    if (slots.past && slots.present && slots.future) return;
+
+    setSlots(prev => {
+      if (!prev.past) return { ...prev, past: card };
+      if (!prev.present) return { ...prev, present: card };
+      if (!prev.future) return { ...prev, future: card };
+      return prev;
+    });
+
+    setDeck(prev => prev.filter(c => c.id !== card.id));
+  };
+
+  const shuffleDeck = () => {
+    setDeck(prev => [...prev].sort(() => Math.random() - 0.5));
+  };
+  
+  const handleButtonClick = () => {
+  if (!revealed) {
+    setRevealed(true);
+  } else {
+    navigate("/prueba",{
+        state:{
+            past:slots.past,
+            present:slots.present,
+            future:slots.future
+        }
+    });
+  }
+};
+
+const shuffleCards = () => {
+    const shuffled = [...deck].sort(() => Math.random() - 0.5);
+    setCards(shuffled.slice(0, 3));
+}
+
+const resetGame = () => {
+  setSlots({
+    past: null,
+    present: null,
+    future: null
+  });
+  setDeck(deck);
+  setRevealed(false);
+  shuffleCards();
+};
+  return (
+    <>
+      <div className={styles.board}>
+  <div className={styles.slot}>
+    <span className={styles.reading}>Pasado</span> 
+    {slots.past && (<div className={`${styles.card} ${revealed ? styles.flipped : ""}`}> 
+        <div className={styles.card_inner}> 
+            <div className={`${styles.card_face} ${styles.card_back}`}> 
+                <img src={slots.past.sakuraReverse} alt="Reverso" /> </div> 
+                <div className={`${styles.card_face} ${styles.card_front}`}> 
+                    <img src={slots.past.sakuraCard} alt="Pasado" /> </div> </div> </div>)} </div>
+
+  <div className={styles.slot}> 
+    <span className={styles.reading}>Presente</span>
+    {slots.present && ( <div className={`${styles.card} ${revealed ? styles.flipped : ""}`}> 
+        <div className={styles.card_inner}> 
+            <div className={`${styles.card_face} ${styles.card_back}`}> 
+                <img src={slots.present.sakuraReverse} alt="Reverso" /> </div> 
+                <div className={`${styles.card_face} ${styles.card_front}`}> 
+                    <img src={slots.present.sakuraCard} alt="Presente" /> </div> </div> </div> )} </div>
+
+  <div className={styles.slot}> 
+    <span className={styles.reading}>Futuro</span>
+    {slots.future && ( <div className={`${styles.card} ${revealed ? styles.flipped : ""}`}> 
+        <div className={styles.card_inner}> 
+            <div className={`${styles.card_face} ${styles.card_back}`}> 
+            <img src={slots.future.sakuraReverse} alt="Reverso" /> </div> 
+            <div className={`${styles.card_face} ${styles.card_front}`}> 
+                <img src={slots.future.sakuraCard} alt="Futuro" /> </div> </div> </div> )} </div>
+      </div>
+
+      {deck.length > 0 && (
+        <Deck
+          deck={deck}
+          onCardClick={placeCard}
+          onShuffle={shuffleDeck}
+          slots={slots}
+          placeCard={placeCard}
+        />
+      )}
+      <div className={styles.field_btn}>         
+          <input
+        type="button"
+        className={styles.subm_btn}
+        value={revealed ? "Continuar" : "Revelar"}
+        onClick={handleButtonClick}
+        disabled={!canReveal && !revealed}
+      />
+       
+          <input type="button" 
+          className={styles.reset_btn} 
+          value="Reiniciar" 
+          onClick={ resetGame } /> 
+          </div> 
+    </>
+  );
+};
+
+export default BoardCards;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

@@ -1,0 +1,215 @@
+.desktop_section {
+  display: none;
+}
+
+.deck_section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+    width: 100%;
+}
+
+.shuffle_btn {
+    padding: 12px 24px;
+    border-radius: var(--radius-md);
+    background: linear-gradient(to right, var(--color-star-yellow), var(--color-magic-pink));
+    border: 1px solid var(--color-border-soft);
+    font-weight: bold;
+    font-family: var(--font-primary);
+    cursor: pointer;
+    transition: var(--transition-soft);
+    box-shadow: 0 4px 10px var(--color-shadow-soft);
+}
+
+.shuffle_btn:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+.main_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+}
+
+.deck_track {
+    display: flex;
+    overflow-x: auto;
+    gap: -65px;
+    padding: 40px 20px;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.deck_track::-webkit-scrollbar {
+    display: none;
+}
+
+.card_item {
+    flex: 0 0 auto;
+    width: 100px;
+    transition: var(--transition-soft);
+    cursor: pointer;
+    position: relative;
+}
+
+.card_ghost {
+    opacity: 0.2;
+    transform: scale(0.85);
+    filter: grayscale(1) blur(2px);
+    pointer-events: none;
+}
+
+.shuffling_flash {
+    animation: magicFlash 0.5s ease-in-out;
+}
+
+@keyframes magicFlash {
+    0% { filter: brightness(1); transform: scale(1); }
+    50% {
+        filter: brightness(2) drop-shadow(0 0 20px var(--color-magic-pink));
+        transform: scale(1.02) rotate(1deg);
+    }
+    100% { filter: brightness(1); transform: scale(1); }
+}
+
+.arrow {
+    display: none;
+}
+
+
+@media (min-width: 1200px) {
+    .desktop_section{
+        display: block;
+    }
+
+    .mobile_section{
+        display:none;
+    }
+
+    .deck_track {
+        gap: 15px;
+        max-width: 900px;
+        mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    }
+
+    .card_item {
+        width: 115px;
+    }
+
+    .card_item:hover {
+        transform: translateY(-20px) scale(1.1);
+        z-index: 10;
+    }
+
+    .card_item img {
+        border-radius: var(--radius-sm);
+        box-shadow: 0 8px 20px var(--color-shadow-soft);
+        border: 2px solid var(--color-cream-white);
+    }
+
+    .arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        background: var(--color-cream-white);
+        border: 1px solid var(--color-sakura-pink);
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 1.2rem;
+        color: #888;
+        transition: var(--transition-soft);
+        z-index: 20;
+    }
+
+    .arrow:hover {
+        background: var(--color-magic-pink);
+        color: white;
+        transform: scale(1.1);
+    }
+
+
+
+
+
+
+.banner {
+  width: 100%;
+  height: 300px;
+  text-align: center;
+  position: relative;
+  /*overflow: hidden;*/
+}
+
+.banner .deck_desktop {
+  position: absolute;
+  width: 200px;
+  height: 250px;
+  top: 10%;
+  left: calc(50% - 100px);
+  transform-style: preserve-3d;
+  /*transform: perspective(1000px) translateZ(-300px);*/
+  transform: translateX(-50%);
+  animation: auto-rotate 20s linear infinite;
+  z-index: 2;
+  
+}
+
+@keyframes auto-rotate {
+  from {
+    transform: perspective(1000px) rotateX(-16deg) rotateY(0deg);
+  }
+  to {
+    transform: perspective(1000px) rotateX(-16deg) rotateY(360deg);
+  }
+}
+
+.banner .deck_desktop .deck_card {
+  margin-top:50px;  
+  position: absolute;
+  transform: rotateY(
+      calc((var(--position) - 1) * (360 / var(--quantity) * 1deg))
+    )
+    /*translateZ(100dvw); /*para ampliar el radio*/
+    translateZ(2000px);
+  transition: all 0.3s linear;
+ 
+  
+}
+
+.deck_card img{
+border-radius: 10px;
+}
+.banner .deck_desktop:hover {
+  animation-play-state: paused;
+}
+
+.banner .deck_desktop .deck_card:hover {
+  transform: rotateY(
+      calc((var(--position) - 1) * (360 / var(--quantity) * 1deg))
+    )
+    rotateX(10deg) translateZ(25dvw) scale(1.2);
+  transform-origin: center;
+  z-index: 1;
+  cursor: pointer;
+}
+
+
+@keyframes floating {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(50px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+}
