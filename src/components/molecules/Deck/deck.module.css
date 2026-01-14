@@ -1,3 +1,7 @@
+.desktop_section {
+  display: none;
+}
+
 .deck_section {
     display: flex;
     flex-direction: column;
@@ -79,6 +83,14 @@
 
 
 @media (min-width: 1200px) {
+    .desktop_section{
+        display: block;
+    }
+
+    .mobile_section{
+        display:none;
+    }
+
     .deck_track {
         gap: 15px;
         max-width: 900px;
@@ -121,4 +133,83 @@
         color: white;
         transform: scale(1.1);
     }
+
+
+
+
+
+
+.banner {
+  width: 100%;
+  height: 300px;
+  text-align: center;
+  position: relative;
+  /*overflow: hidden;*/
+}
+
+.banner .deck_desktop {
+  position: absolute;
+  width: 200px;
+  height: 250px;
+  top: 10%;
+  left: calc(50% - 100px);
+  transform-style: preserve-3d;
+  /*transform: perspective(1000px) translateZ(-300px);*/
+  transform: translateX(-50%);
+  animation: auto-rotate 20s linear infinite;
+  z-index: 2;
+  
+}
+
+@keyframes auto-rotate {
+  from {
+    transform: perspective(1000px) rotateX(-16deg) rotateY(0deg);
+  }
+  to {
+    transform: perspective(1000px) rotateX(-16deg) rotateY(360deg);
+  }
+}
+
+.banner .deck_desktop .deck_card {
+  margin-top:50px;  
+  position: absolute;
+  transform: rotateY(
+      calc((var(--position) - 1) * (360 / var(--quantity) * 1deg))
+    )
+    /*translateZ(100dvw); /*para ampliar el radio*/
+    translateZ(2000px);
+  transition: all 0.3s linear;
+ 
+  
+}
+
+.deck_card img{
+border-radius: 10px;
+}
+.banner .deck_desktop:hover {
+  animation-play-state: paused;
+}
+
+.banner .deck_desktop .deck_card:hover {
+  transform: rotateY(
+      calc((var(--position) - 1) * (360 / var(--quantity) * 1deg))
+    )
+    rotateX(10deg) translateZ(25dvw) scale(1.2);
+  transform-origin: center;
+  z-index: 1;
+  cursor: pointer;
+}
+
+
+@keyframes floating {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(50px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 }
