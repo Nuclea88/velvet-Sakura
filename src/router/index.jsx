@@ -5,6 +5,8 @@ import Prueba from "../pages/prueba"; // esto se borra al final
 import Register from "../pages/Register/Register";
 import Info from "../pages/DataResults/DataResults";
 import Start from "../pages/Start/Start";
+import TarotResult from "../pages/TarotResults/TarotResult";
+
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -28,9 +30,12 @@ export const router = createBrowserRouter([
             },
             {
             path:"/readings",
-            Component: Start    
+            Component: Start
+            },
+            {
+            path: "/tarot-result",
+            Component: TarotResult
             }
-
             ]
     }
 ])
