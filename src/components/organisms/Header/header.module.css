@@ -95,7 +95,7 @@ header{
 
 .invisible_button{
     background: none;
-    border: none;
+    border: none !important;
     padding: 0;
     margin: 0;
     font: inherit;       

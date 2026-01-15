@@ -4,15 +4,36 @@ import styles from "./reading-card.module.css";
 import { useState } from "react";
 import CheckButton from "../../atoms/checkButton/CheckButton.jsx";
 import apiReading from "../../../services/apiReading.jsx";
+import { useNavigate } from "react-router";
 
-const ReadingCard = ({date, name, id, onDelete}) =>{
+const ReadingCard = ({data, onDelete}) =>{
     const [isEditing, setIsEditing] = useState(false);
-    const [tempName, setTempName] = useState(name);
+    const [tempName, setTempName] = useState(data.name);
+    
+const navigate = useNavigate();
+    const cards= {
+            "past":data.pastCardId,
+            "present":data.presentCardId,
+            "future":data.futureCardId
+    };
+
+    const handleButtonClick = () => {
+        navigate("/prueba",{
+            state: {
+            past: data.pastCardId,
+            present: data.presentCardId,
+            future: data.futureCardId
+            }
+        });
+    }
+
+
+
 
     const db = apiReading();
 
     const handleSave = () => {
-        db.editName(id, tempName).then(() => {
+        db.editName(data.Id, tempName).then(() => {
         setIsEditing(false)
         })
         .catch((err) => {
@@ -23,8 +44,8 @@ const ReadingCard = ({date, name, id, onDelete}) =>{
 
     return( 
        <div className={styles.cardContainer}>
-            <img src="src/assets/images/historial.png" alt="iconoHistorial"></img>
-            <p>{date}</p>
+            <img src="src/assets/images/historial.png" alt="iconoHistorial" onClick={handleButtonClick}></img>
+            <p>{data.date}</p>
             <div className={styles.nameRow}>
                 {isEditing ? (
                 <>
@@ -42,7 +63,7 @@ const ReadingCard = ({date, name, id, onDelete}) =>{
                 <span>{tempName}</span>
                 </>)}
             </div>
-            <DeleteButton id={id} onDelete={onDelete} /> 
+            <DeleteButton id={data.Id} onDelete={onDelete} /> 
         </div>
     )
 }

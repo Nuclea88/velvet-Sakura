@@ -23,9 +23,7 @@ return(
     {reading.map((item) => (
         <ReadingCard 
             key={item.id} 
-            date={item.date} 
-            name={item.name} 
-            id={item.id}
+            data={item} 
             onDelete= {triggerRefresh}
         />
 ))}
