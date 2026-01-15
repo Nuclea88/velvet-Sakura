@@ -36,7 +36,7 @@ const handleTitleClick = () => {
 
   return (
     <header className={styles.header}>
-      <img src={Logo} alt="Logo Velvet Sakura" className={styles.logo_header} onClick={handleTitleClick}/>
+      <img src={Logo} alt="Logo Velvet Sakura" className={styles.logo_header} onClick={handleTitleClick} title="Inicio"/>
       <div className={styles.titles}>
           <h1 className={styles.main_title} >Velvet Sakura</h1>
 
@@ -63,7 +63,7 @@ const handleTitleClick = () => {
           <button
             onClick={() =>navigate("/history")}
             className={styles.avatar_btn}
-            title="Cerrar sesión">
+            title="Ir al historial">
             <img src={user.avatar || ProfileImg} alt="" className={styles.profile_img}/>
           </button>
           <p className={styles.profile_name}>{user.name} <button

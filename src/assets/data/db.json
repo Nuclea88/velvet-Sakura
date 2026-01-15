@@ -8,7 +8,7 @@
     },
     {
       "id": "4e06",
-      "name": "Jenny1",
+      "name": "Jenny",
       "email": "patata1@hotmail.com",
       "password": "12345678"
     },
@@ -78,22 +78,13 @@
       "futureCardId": "23"
     },
     {
-      "id": "19048504-8513-4dcf-bde4-37302c3f4258",
+      "id": "4ac9f9a5-0600-4bf3-9828-ae03a3879c86",
       "userId": "4e06",
-      "date": "2026-01-14T17:58:01.646Z",
-      "name": "partida1",
-      "pastCardId": "25",
-      "presentCardId": "22",
-      "futureCardId": "21"
-    },
-    {
-      "id": "3c94269f-b5be-4d95-9f66-3fd716e55fb2",
-      "userId": "4e06",
-      "date": "2026-01-14T18:02:23.509Z",
-      "name": "partidamovil",
-      "pastCardId": "3",
-      "presentCardId": "2",
-      "futureCardId": "4"
+      "date": "15 de enero 2026, 20:28",
+      "name": "pequeño/dormir/aro",
+      "pastCardId": "26",
+      "presentCardId": "24",
+      "futureCardId": "23"
     }
   ]
 }

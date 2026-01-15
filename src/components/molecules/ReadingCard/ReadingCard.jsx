@@ -18,11 +18,13 @@ const navigate = useNavigate();
     };
 
     const handleButtonClick = () => {
-        navigate("/prueba",{
+        navigate("/profile",{
             state: {
             past: data.pastCardId,
             present: data.presentCardId,
-            future: data.futureCardId
+            future: data.futureCardId,
+            name:data.name,
+            id:data.id
             }
         });
     }

@@ -1,5 +1,3 @@
-
-
 import BoardCards from '../../components/organisms/BoardCards/BoardCards';
 import styles from "./start.module.css";
 

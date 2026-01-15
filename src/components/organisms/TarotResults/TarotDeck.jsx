@@ -6,6 +6,8 @@ import ArrowLeft from "../../../assets/images/flecha_izquierda.png";
 import ArrowRight from "../../../assets/images/flecha_derecha.png";
 import apiSave from "../../../services/apiSave";
 import { useEffect } from "react";
+import { format } from "date-fns";
+import { es } from "date-fns/locale";
 
 
 
@@ -17,6 +19,8 @@ const TarotDeck = ({user}) => {
   const dbReadings=apiSave();
   const [isMobile, setIsMobile] = useState(false);
   const navigate=useNavigate();
+  const actualDate = new Date();
+  const savedDate=format(actualDate, "dd 'de' MMMM yyyy, HH:mm", {locale:es})
 
   useEffect(() => {
   const checkMobile = () => setIsMobile(window.innerWidth <= 768);
@@ -63,7 +67,7 @@ const handleSave = async () => {
   const dataReading = {
     userId: user?.id,
     id: crypto.randomUUID(),
-    date: new Date().toISOString(),
+    date: savedDate,
     name: readingName,
     pastCardId: past.id,
     presentCardId: present.id,
@@ -78,7 +82,7 @@ const handleSave = async () => {
 
     alert("Lectura guardada correctamente");
 
-    navigate("/prueba")
+    navigate("/history")
 
   } catch (error) {
     console.error(error);
