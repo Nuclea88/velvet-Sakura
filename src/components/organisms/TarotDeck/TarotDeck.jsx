@@ -78,7 +78,7 @@ const handleSave = async () => {
 
     alert("Lectura guardada correctamente");
 
-    navigate("/prueba")
+    navigate("/history")
 
   } catch (error) {
     console.error(error);
