@@ -1,15 +1,15 @@
 {
   "accounts": [
     {
-      "id": "0",
-      "name": "Jenny",
-      "email": "fake@email.com",
+      "id": "0e8a",
+      "name": "Nucla0",
+      "email": "patata@hotmail.com",
       "password": "12345678"
     },
     {
       "id": "4e06",
       "name": "Jenny1",
-      "email": "patata@hotmail.com",
+      "email": "patata1@hotmail.com",
       "password": "12345678"
     },
     {
@@ -19,13 +19,13 @@
       "password": "12345678"
     },
     {
-      "id": "0e8a",
       "name": "Nuclea",
-      "email": "Nuclea@gmail.com",
+      "id": "0",
+      "email": "hola@hotmail.com",
       "password": "12345678"
     },
     {
-      "id": "d1e6",
+      "id": "1",
       "name": "Lorena",
       "email": "Lorena@gmail.com",
       "password": "12345678"
@@ -69,84 +69,74 @@
   ],
   "readings": [
     {
-      "idAccount": "0",
-      "id": "0",
-      "name": "default",
-      "date": ""
-    }
-  ],
-  "readings": [
-    {
+      "id": "1f935961-358e-4de8-95aa-bf0abadc6517",
       "userId": "0",
-      "id": "1",
-      "date": "12.02.2026",
-      "name": "default2"
+      "date": "2026-01-14T17:56:24.589Z",
+      "name": "partida1",
+      "pastCardId": "25",
+      "presentCardId": "24",
+      "futureCardId": "23"
     },
     {
+      "id": "19048504-8513-4dcf-bde4-37302c3f4258",
+      "userId": "4e06",
+      "date": "2026-01-14T17:58:01.646Z",
+      "name": "partida1",
+      "pastCardId": "25",
+      "presentCardId": "22",
+      "futureCardId": "21"
+    },
+    {
+      "id": "3c94269f-b5be-4d95-9f66-3fd716e55fb2",
+      "userId": "4e06",
+      "date": "2026-01-14T18:02:23.509Z",
+      "name": "partidamovil",
+      "pastCardId": "3",
+      "presentCardId": "2",
+      "futureCardId": "4"
+    },
+    {
+      "id": "e04e61fd-e47a-4f7f-b897-b658163149f1",
       "userId": "0",
-      "id": "2",
-      "date": "12.02.2026",
-      "name": "default2"
+      "date": "2026-01-15T11:27:05.991Z",
+      "name": "Prueba1",
+      "pastCardId": "8",
+      "presentCardId": "4",
+      "futureCardId": "51"
     },
     {
+      "id": "0937544a-3eed-41d7-a73f-77ebca3caa91",
       "userId": "0",
-      "id": "3",
-      "date": "12.02.2026",
-      "name": "default2"
+      "date": "2026-01-15T11:28:18.180Z",
+      "name": "ARO NO",
+      "pastCardId": "27",
+      "presentCardId": "23",
+      "futureCardId": "14"
     },
     {
+      "id": "35c534a0-05ce-455d-8caf-2c74a1234f12",
+      "date": "2026-01-15T11:31:57.582Z",
+      "name": "ddd",
+      "pastCardId": "25",
+      "presentCardId": "24",
+      "futureCardId": "22"
+    },
+    {
+      "id": "b3099265-865a-4736-a501-dfe3d79be767",
       "userId": "0",
-      "id": "4",
-      "date": "12.02.2026",
-      "name": "default2"
+      "date": "2026-01-15T11:32:21.406Z",
+      "name": "uuuu",
+      "pastCardId": "27",
+      "presentCardId": "24",
+      "futureCardId": "22"
     },
     {
-      "userId": "0",
-      "id": "5",
-      "date": "12.02.2026",
-      "name": "default2"
-    },
-    {
-      "userId": "0",
-      "id": "6",
-      "date": "12.02.2026",
-      "name": "default2"
-    },
-    {
-      "userId": "0",
-      "id": "7",
-      "date": "12.02.2026",
-      "name": "default2"
-    },
-    {
-      "userId": "0",
-      "id": "8",
-      "date": "12.02.2026",
-      "name": "default2"
-    },
-    {
-      "userId": "0",
-      "id": "9",
-      "date": "12.02.2026",
-      "name": "default2"
-    },
-    {
-      "userId": "0",
-      "id": "10",
-      "date": "12.02.2026",
-      "name": "default2"
-    },
-    {
-      "userId": "1",
-      "id": "1",
-      "date": "12.02.2026",
-      "name": "default2"
-    },
-    {
-      "userId": "2",
-      "id": "1",
-      "date": "12.02.2026",
-      "name": "default2"
+      "id": "1699ea71-8bb0-4580-b82c-71597f37c404",
+      "date": "2026-01-15T11:33:07.649Z",
+      "name": "esto no sale",
+      "pastCardId": "26",
+      "presentCardId": "25",
+      "futureCardId": "22"
     }
   ]
 }
