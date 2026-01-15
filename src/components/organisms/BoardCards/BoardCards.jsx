@@ -14,6 +14,7 @@ const BoardCards = () => {
     present: null,
     future: null
   });
+
   const canReveal = slots.past && slots.present && slots.future;
   const [revealed, setRevealed] = useState(false);
 
@@ -42,35 +43,35 @@ const BoardCards = () => {
 
     setDeck(prev => prev.filter(c => c.id !== card.id));
   };
-
-  const shuffleDeck = (newDeck) => {
-    const deckToShuffle = newDeck ? [...newDeck] : deck;
-    setDeck([...deckToShuffle].sort(() => Math.random() - 0.5));
-  };
-
+  
   const handleButtonClick = () => {
-    if (!revealed) {
-      setRevealed(true);
-    } else {
-      navigate("/prueba", {
-        state: {
-          past: slots.past,
-          present: slots.present,
-          future: slots.future
+  if (!revealed) {
+    setRevealed(true);
+  } else {
+    navigate("/tarot-result",{
+        state:{
+            past:slots.past,
+            present:slots.present,
+            future:slots.future
         }
-      });
-    }
-  };
-
-  const resetGame = () => {
-    setSlots({
-      past: null,
-      present: null,
-      future: null
     });
-    setRevealed(false);
-    shuffleDeck(masterDeck);
-  };
+  }
+};
+
+const shuffleDeck = (newDeck) => {
+    const deckToShuffle= newDeck ? [...newDeck ] : deck;
+    setDeck[[...deckToShuffle].sort(() => Math.random() - 0.5)];
+}
+
+const resetGame = () => {
+  setSlots({
+    past: null,
+    present: null,
+    future: null
+  });
+  setRevealed(false);
+  shuffleDeck(masterDeck);
+};
   return (
     <>
       <div className={styles.container_board}>
