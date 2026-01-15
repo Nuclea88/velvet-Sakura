@@ -6,8 +6,8 @@ import Register from "../pages/Register/Register";
 import Info from "../pages/DataResults/DataResults";
 import Start from "../pages/Start/Start";
 import TarotResult from "../pages/TarotResults/TarotResult";
-
 import History from "../pages/history/History";
+import ProfileReading from "../pages/ProfileReading/ProfileReading";
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -40,6 +40,10 @@ export const router = createBrowserRouter([
             {
             path:"/history",
             Component: History
+            },
+            {
+            path:"/profile",
+            Component: ProfileReading    
             }
             ]
     }

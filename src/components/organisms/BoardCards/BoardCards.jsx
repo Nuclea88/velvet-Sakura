@@ -7,12 +7,14 @@ import { useNavigate } from "react-router";
 
 const BoardCards = () => {
   const [deck, setDeck] = useState([]);
+  const [masterDeck, setMasterDeck] = useState([]);
   const navigate = useNavigate();
   const [slots, setSlots] = useState({
     past: null,
     present: null,
     future: null
   });
+
   const canReveal = slots.past && slots.present && slots.future;
   const [revealed, setRevealed] = useState(false);
 
@@ -41,16 +43,12 @@ const BoardCards = () => {
 
     setDeck(prev => prev.filter(c => c.id !== card.id));
   };
-
-  const shuffleDeck = () => {
-    setDeck(prev => [...prev].sort(() => Math.random() - 0.5));
-  };
   
   const handleButtonClick = () => {
   if (!revealed) {
     setRevealed(true);
   } else {
-    navigate("/prueba",{
+    navigate("/tarot-result",{
         state:{
             past:slots.past,
             present:slots.present,
@@ -60,9 +58,9 @@ const BoardCards = () => {
   }
 };
 
-const shuffleCards = () => {
-    const shuffled = [...deck].sort(() => Math.random() - 0.5);
-    setCards(shuffled.slice(0, 3));
+const shuffleDeck = (newDeck) => {
+    const deckToShuffle= newDeck ? [...newDeck ] : deck;
+    setDeck[[...deckToShuffle].sort(() => Math.random() - 0.5)];
 }
 
 const resetGame = () => {
@@ -71,9 +69,8 @@ const resetGame = () => {
     present: null,
     future: null
   });
-  setDeck(deck);
   setRevealed(false);
-  shuffleCards();
+  shuffleDeck(masterDeck);
 };
   return (
     <>
