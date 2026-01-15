@@ -49,7 +49,6 @@ function LogForm(){
               return;
           }
          const loggedUser = { 
-            //name: form.name, 
             ...user,
             avatar: Avatar 
         };

@@ -1,35 +1,69 @@
-import DeleteButton from "../deleteButton.jsx/deleteButton.jsx";
 import EditButton from "../../atoms/editButton/EditButton.jsx";
 import styles from "./reading-card.module.css";
 import { useState } from "react";
+import CheckButton from "../../atoms/checkButton/CheckButton.jsx";
+import apiReading from "../../../services/apiReading.jsx";
+import { useNavigate } from "react-router";
+import DeleteButton from "../deleteButton/DeleteButton.jsx";
 
-const ReadingCard = ({date, name, id, onDelete}) =>{
+const ReadingCard = ({data, onDelete}) =>{
     const [isEditing, setIsEditing] = useState(false);
-    const [tempName, setTempName] = useState(name);
+    const [tempName, setTempName] = useState(data.name);
+    
+const navigate = useNavigate();
+    const cards= {
+            "past":data.pastCardId,
+            "present":data.presentCardId,
+            "future":data.futureCardId
+    };
+
+    const handleButtonClick = () => {
+        navigate("/prueba",{
+            state: {
+            past: data.pastCardId,
+            present: data.presentCardId,
+            future: data.futureCardId
+            }
+        });
+    }
+
+
+
+
+    const db = apiReading();
+
+    const handleSave = () => {
+        db.editName(data.id, tempName).then(() => {
+        setIsEditing(false)
+        })
+        .catch((err) => {
+                console.error("Error al actualizar:", err);
+                alert("No se pudo guardar el cambio.");
+            });
+    };
+
     return( 
        <div className={styles.cardContainer}>
-            <img src="src/assets/images/historial.png" alt="iconoHistorial"></img>
-            <p>{date}</p>
+            <img src="src/assets/images/historial.png" alt="iconoHistorial" onClick={handleButtonClick}></img>
+            <p>{data.date}</p>
             <div className={styles.nameRow}>
                 {isEditing ? (
                 <>
                     <input 
+                        className={styles.editInput}
                         value={tempName} 
                         onChange={(event) => setTempName(event.target.value)} 
+                        autofocus
                     />
-                    {/* El botón de confirmar (Check) va aquí fuera */}
-                    <button onClick={() => {
-                        console.log("Guardando...", tempName);
-                        setIsEditing(false);
-                    }}>✅</button>
+                    <CheckButton onSave={handleSave} />     
                 </>
             ) : (
                 <>
                 <EditButton onOpenEdit={() => setIsEditing(true)}/> 
-                <span>{name}</span>
+                <span>{tempName}</span>
                 </>)}
             </div>
-            <DeleteButton id={id} onDelete={onDelete} /> 
+            <DeleteButton id={data.id} onDelete={onDelete} /> 
         </div>
     )
 }

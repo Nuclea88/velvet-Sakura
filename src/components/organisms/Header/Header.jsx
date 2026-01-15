@@ -8,12 +8,12 @@ import useAuth from "../../../hooks/useAuth";
 const Header = () => {
     const { user, logout } = useAuth();
 
-    const [isMobile, setIsMobile] = useState(window.innerWidth <= 932);
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 1199);
     
     
     useEffect(() => {
         const handleResize = () => {
-            setIsMobile(window.innerWidth <= 932);
+            setIsMobile(window.innerWidth <= 1199);
          };
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
@@ -36,17 +36,23 @@ const handleTitleClick = () => {
 
   return (
     <header className={styles.header}>
-      <img src={Logo} alt="Logo Velvet Sakura" className={styles.logo_header} />
+      <img src={Logo} alt="Logo Velvet Sakura" className={styles.logo_header} onClick={handleTitleClick}/>
       <div className={styles.titles}>
-          <h1 className={styles.main_title} onClick={handleTitleClick}>Velvet Sakura</h1>
+          <h1 className={styles.main_title} >Velvet Sakura</h1>
 
         <h2 className={styles.subtitle_header}>
         {isMobile && user ? (
-            <span className={styles.welcome_container}>Bienvenida {user.name}
-            <button
+            <span className={styles.welcome_container}>Bienvenida  
+              <button 
+                className={styles.invisible_button}
+                onClick={() =>navigate("/history")}>
+                 {user.name}
+              </button>
+              <button
                 onClick={handleLogout}
                 className={styles.logout_icon}
-                title="Cerrar sesión">⏻</button>
+                title="Cerrar sesión">⏻
+              </button>
             </span>
         ) : ("Cartas del destino")}
         </h2>
@@ -55,12 +61,15 @@ const handleTitleClick = () => {
       {user && (
         <div className={styles.field_profile}>
           <button
-            onClick={handleLogout}
+            onClick={() =>navigate("/history")}
             className={styles.avatar_btn}
             title="Cerrar sesión">
             <img src={user.avatar || ProfileImg} alt="" className={styles.profile_img}/>
           </button>
-          <p className={styles.profile_name}>{user.name}</p>
+          <p className={styles.profile_name}>{user.name} <button
+                onClick={handleLogout}
+                className={styles.logout_icon}
+                title="Cerrar sesión">⏻</button></p>
         </div>
       )}
     </header>

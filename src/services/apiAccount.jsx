@@ -26,7 +26,7 @@ const apiAccount=()=>{
         
         
     const editAccount = async (id,name) => {
-        const response = await axios.put(`${url}/${id}`, { name });
+        const response = await axios.patch(`${url}/${id}`, { name });
         return response.data;
     }
 
