@@ -14,6 +14,7 @@ const BoardCards = () => {
     present: null,
     future: null
   });
+
   const canReveal = slots.past && slots.present && slots.future;
   const [revealed, setRevealed] = useState(false);
 
@@ -42,6 +43,7 @@ const BoardCards = () => {
 
     setDeck(prev => prev.filter(c => c.id !== card.id));
   };
+<<<<<<< HEAD
 
   const shuffleDeck = (newDeck) => {
     const deckToShuffle = newDeck ? [...newDeck] : deck;
@@ -57,6 +59,18 @@ const BoardCards = () => {
           past: slots.past,
           present: slots.present,
           future: slots.future
+=======
+  
+  const handleButtonClick = () => {
+  if (!revealed) {
+    setRevealed(true);
+  } else {
+    navigate("/tarot-result",{
+        state:{
+            past:slots.past,
+            present:slots.present,
+            future:slots.future
+>>>>>>> e6d9f4a6d856110fe76e0fbd8642a2edcb0d48cc
         }
       });
     }
@@ -68,9 +82,29 @@ const BoardCards = () => {
       present: null,
       future: null
     });
+<<<<<<< HEAD
     setRevealed(false);
     shuffleDeck(masterDeck);
   };
+=======
+  }
+};
+
+const shuffleDeck = (newDeck) => {
+    const deckToShuffle= newDeck ? [...newDeck ] : deck;
+    setDeck[[...deckToShuffle].sort(() => Math.random() - 0.5)];
+}
+
+const resetGame = () => {
+  setSlots({
+    past: null,
+    present: null,
+    future: null
+  });
+  setRevealed(false);
+  shuffleDeck(masterDeck);
+};
+>>>>>>> e6d9f4a6d856110fe76e0fbd8642a2edcb0d48cc
   return (
     <>
       <div className={styles.container_board}>
