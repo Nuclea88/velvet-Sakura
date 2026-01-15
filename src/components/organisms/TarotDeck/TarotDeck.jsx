@@ -52,8 +52,6 @@ const showActions =
     setCurrentIndex((prev) => (prev === 2 ? 0 : prev + 1));
   };
 
-  
-
 const handleSave = async () => {
   if (!readingName.trim()) {
     alert("Debes introducir un nombre para la partida");

@@ -1,93 +1,90 @@
 import { describe, it, expect } from "vitest";
 import {
-  selectTarotCards,
-  assignPositions,
-  canReveal,
-  parseTarotCard,
+  getCardsFromState,
+  getNextIndex,
+  getPrevIndex,
+  shouldShowActions,
+  buildReadingData,
 } from "./componentTarotLogic";
 
-describe("Tarot card selection logic", () => {
-  it("returns exactly 3 unique cards from the deck", () => {
-    const deck = ["A", "B", "C", "D", "E"];
-
-    const result = selectTarotCards(deck);
-
-    expect(result).toHaveLength(3);
-    expect(new Set(result).size).toBe(3);
+describe("SavedReading logic", () => {
+  it("returns null if state is missing", () => {
+    expect(getCardsFromState(null)).toBe(null);
   });
 
-  it("throws an error if the deck has less than 3 cards", () => {
-    const deck = ["A", "B"];
+  it("builds cards with stages from state", () => {
+    const state = {
+      past: { spanishName: "A" },
+      present: { spanishName: "B" },
+      future: { spanishName: "C" },
+    };
 
-    expect(() => selectTarotCards(deck)).toThrow();
+    const cards = getCardsFromState(state);
+
+    expect(cards).toHaveLength(3);
+    expect(cards[0].stage).toBe("Pasado");
+    expect(cards[1].stage).toBe("Presente");
+    expect(cards[2].stage).toBe("Futuro");
   });
 
-  it("never returns duplicated cards in a reading", () => {
-    const deck = ["A", "B", "C", "D", "E"];
-
-    for (let i = 0; i < 50; i++) {
-      const result = selectTarotCards(deck);
-      const uniqueCards = new Set(result);
-
-      expect(uniqueCards.size).toBe(result.length);
-    }
+  it("cycles next index correctly", () => {
+    expect(getNextIndex(0)).toBe(1);
+    expect(getNextIndex(2)).toBe(0);
   });
 
-  it("returns a random selection (order may vary between executions)", () => {
-    const deck = ["A", "B", "C", "D", "E", "F"];
+  it("cycles previous index correctly", () => {
+    expect(getPrevIndex(0)).toBe(2);
+    expect(getPrevIndex(2)).toBe(1);
+  });
+});
 
-    const result1 = selectTarotCards(deck);
-    const result2 = selectTarotCards(deck);
-
-    expect(result1).not.toEqual(result2);
+describe("TarotDeck logic", () => {
+  it("cycles to next index correctly", () => {
+    expect(getNextIndex(0)).toBe(1);
+    expect(getNextIndex(2)).toBe(0);
   });
 
-  it("assigns cards to past, present and future positions", () => {
-    const cards = ["The Fool", "The Magician", "The Empress"];
+  it("cycles to previous index correctly", () => {
+    expect(getPrevIndex(0)).toBe(2);
+    expect(getPrevIndex(2)).toBe(1);
+  });
 
-    const spread = assignPositions(cards);
+  it("shows actions on desktop", () => {
+    expect(shouldShowActions(false, "Pasado")).toBe(true);
+  });
 
-    expect(spread).toEqual({
-      past: "The Fool",
-      present: "The Magician",
-      future: "The Empress",
+  it("shows actions on mobile only on Futuro stage", () => {
+    expect(shouldShowActions(true, "Pasado")).toBe(false);
+    expect(shouldShowActions(true, "Futuro")).toBe(true);
+  });
+
+  it("builds reading data correctly", () => {
+    const data = buildReadingData({
+      user: { id: 1 },
+      readingName: "My Reading",
+      past: { id: 10 },
+      present: { id: 20 },
+      future: { id: 30 },
+    });
+
+    expect(data).toMatchObject({
+      userId: 1,
+      name: "My Reading",
+      pastCardId: 10,
+      presentCardId: 20,
+      futureCardId: 30,
     });
   });
 
-  it("does not allow reveal with less than or more than 3 cards", () => {
-    expect(canReveal([])).toBe(false);
-    expect(canReveal(["A"])).toBe(false);
-    expect(canReveal(["A", "B"])).toBe(false);
-    expect(canReveal(["A", "B", "C", "D"])).toBe(false);
-  });
-
-  it("allows reveal only when exactly 3 cards are selected", () => {
-    expect(canReveal(["A", "B", "C"])).toBe(true);
-  });
-
-  it("parses tarot card data coming from the API", () => {
-    const apiCard = {
-      id: 1,
-      name: "The Fool",
-      meaning: "New beginnings, optimism, trust in life",
-      image: "https://example.com/fool.jpg",
-      randomField: "should not be used",
-    };
-
-    const parsedCard = parseTarotCard(apiCard);
-
-    expect(parsedCard).toEqual({
-      name: "The Fool",
-      meaning: "New beginnings, optimism, trust in life",
-      image: "https://example.com/fool.jpg",
-    });
-  });
-
-  it("throws an error if API card data is invalid", () => {
-    const invalidApiCard = {
-      name: "The Fool",
-    };
-
-    expect(() => parseTarotCard(invalidApiCard)).toThrow();
+  it("throws error when reading name is empty", () => {
+    expect(() =>
+      buildReadingData({
+        user: { id: 1 },
+        readingName: "",
+        past: { id: 10 },
+        present: { id: 20 },
+        future: { id: 30 },
+      })
+    ).toThrow();
   });
 });

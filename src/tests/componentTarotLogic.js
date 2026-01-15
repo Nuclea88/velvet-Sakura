@@ -1,41 +1,39 @@
-export function selectTarotCards(deck) {
-  if (!Array.isArray(deck) || deck.length < 3) {
-    throw new Error("Invalid tarot deck");
-  }
+export function getCardsFromState(state) {
+  if (!state) return null;
 
-  const shuffled = [...deck].sort(() => Math.random() - 0.5);
-  return shuffled.slice(0, 3);
+  const { past, present, future } = state;
+
+  return [
+    { ...past, stage: "Pasado" },
+    { ...present, stage: "Presente" },
+    { ...future, stage: "Futuro" },
+  ];
 }
 
-export function assignPositions(cards) {
-  if (!Array.isArray(cards) || cards.length !== 3) {
-    throw new Error("Exactly 3 cards are required");
-  }
-
-  return {
-    past: cards[0],
-    present: cards[1],
-    future: cards[2],
-  };
+export function getNextIndex(current) {
+  return current === 2 ? 0 : current + 1;
 }
 
-export function canReveal(cards) {
-  return Array.isArray(cards) && cards.length === 3;
+export function getPrevIndex(current) {
+  return current === 0 ? 2 : current - 1;
 }
 
-export function parseTarotCard(apiCard) {
-  if (
-    !apiCard ||
-    typeof apiCard.name !== "string" ||
-    typeof apiCard.meaning !== "string" ||
-    typeof apiCard.image !== "string"
-  ) {
-    throw new Error("Invalid tarot card data");
+export function shouldShowActions(isMobile, stage) {
+  return !isMobile || (isMobile && stage === "Futuro");
+}
+
+export function buildReadingData({ user, readingName, past, present, future }) {
+  if (!readingName?.trim()) {
+    throw new Error("Reading name is required");
   }
 
   return {
-    name: apiCard.name,
-    meaning: apiCard.meaning,
-    image: apiCard.image,
+    userId: user?.id,
+    id: "test-id",
+    date: "test-date",
+    name: readingName,
+    pastCardId: past.id,
+    presentCardId: present.id,
+    futureCardId: future.id,
   };
 }
