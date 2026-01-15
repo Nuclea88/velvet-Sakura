@@ -43,56 +43,32 @@ const BoardCards = () => {
 
     setDeck(prev => prev.filter(c => c.id !== card.id));
   };
-<<<<<<< HEAD
-
-  const shuffleDeck = (newDeck) => {
-    const deckToShuffle = newDeck ? [...newDeck] : deck;
-    setDeck([...deckToShuffle].sort(() => Math.random() - 0.5));
-  };
 
   const handleButtonClick = () => {
     if (!revealed) {
       setRevealed(true);
     } else {
-      navigate("/prueba", {
+      navigate("/tarot-result", {
         state: {
           past: slots.past,
           present: slots.present,
           future: slots.future
-=======
-  
-  const handleButtonClick = () => {
-  if (!revealed) {
-    setRevealed(true);
-  } else {
-    navigate("/tarot-result",{
-        state:{
-            past:slots.past,
-            present:slots.present,
-            future:slots.future
->>>>>>> e6d9f4a6d856110fe76e0fbd8642a2edcb0d48cc
         }
       });
     }
   };
 
-  const resetGame = () => {
+  /*const resetGame = () => {
     setSlots({
       past: null,
       present: null,
       future: null
     });
-<<<<<<< HEAD
-    setRevealed(false);
-    shuffleDeck(masterDeck);
-  };
-=======
-  }
-};
+  }*/
 
 const shuffleDeck = (newDeck) => {
-    const deckToShuffle= newDeck ? [...newDeck ] : deck;
-    setDeck[[...deckToShuffle].sort(() => Math.random() - 0.5)];
+  const deckToShuffle = newDeck ? [...newDeck] : deck;
+  setDeck[[...deckToShuffle].sort(() => Math.random() - 0.5)];
 }
 
 const resetGame = () => {
@@ -103,68 +79,67 @@ const resetGame = () => {
   });
   setRevealed(false);
   shuffleDeck(masterDeck);
-};
->>>>>>> e6d9f4a6d856110fe76e0fbd8642a2edcb0d48cc
-  return (
-    <>
-      <div className={styles.container_board}>
-        <div className={styles.board}>
-          <div className={styles.slot}>
-            <span className={styles.reading}>Pasado</span>
-            {slots.past && (<div className={`${styles.card} ${revealed ? styles.flipped : ""}`}>
-              <div className={styles.card_inner}>
-                <div className={`${styles.card_face} ${styles.card_back}`}>
-                  <img src={slots.past.sakuraReverse} alt="Reverso" /> </div>
-                <div className={`${styles.card_face} ${styles.card_front}`}>
-                  <img src={slots.past.sakuraCard} alt="Pasado" /> </div> </div> </div>)} </div>
+}
 
-          <div className={styles.slot}>
-            <span className={styles.reading}>Presente</span>
-            {slots.present && (<div className={`${styles.card} ${revealed ? styles.flipped : ""}`}>
-              <div className={styles.card_inner}>
-                <div className={`${styles.card_face} ${styles.card_back}`}>
-                  <img src={slots.present.sakuraReverse} alt="Reverso" /> </div>
-                <div className={`${styles.card_face} ${styles.card_front}`}>
-                  <img src={slots.present.sakuraCard} alt="Presente" /> </div> </div> </div>)} </div>
+  return(
+  <>
+    <div className={styles.container_board}>
+      <div className={styles.board}>
+        <div className={styles.slot}>
+          <span className={styles.reading}>Pasado</span>
+          {slots.past && (<div className={`${styles.card} ${revealed ? styles.flipped : ""}`}>
+            <div className={styles.card_inner}>
+              <div className={`${styles.card_face} ${styles.card_back}`}>
+                <img src={slots.past.sakuraReverse} alt="Reverso" /> </div>
+              <div className={`${styles.card_face} ${styles.card_front}`}>
+                <img src={slots.past.sakuraCard} alt="Pasado" /> </div> </div> </div>)} </div>
 
-          <div className={styles.slot}>
-            <span className={styles.reading}>Futuro</span>
-            {slots.future && (<div className={`${styles.card} ${revealed ? styles.flipped : ""}`}>
-              <div className={styles.card_inner}>
-                <div className={`${styles.card_face} ${styles.card_back}`}>
-                  <img src={slots.future.sakuraReverse} alt="Reverso" /> </div>
-                <div className={`${styles.card_face} ${styles.card_front}`}>
-                  <img src={slots.future.sakuraCard} alt="Futuro" /> </div> </div> </div>)} </div>
-        </div>
+        <div className={styles.slot}>
+          <span className={styles.reading}>Presente</span>
+          {slots.present && (<div className={`${styles.card} ${revealed ? styles.flipped : ""}`}>
+            <div className={styles.card_inner}>
+              <div className={`${styles.card_face} ${styles.card_back}`}>
+                <img src={slots.present.sakuraReverse} alt="Reverso" /> </div>
+              <div className={`${styles.card_face} ${styles.card_front}`}>
+                <img src={slots.present.sakuraCard} alt="Presente" /> </div> </div> </div>)} </div>
 
-        {deck.length > 0 && (
-          <div className={styles.deck_wrapper}>
-            <Deck
-              deck={deck}
-              onCardClick={placeCard}
-              onShuffle={shuffleDeck}
-              slots={slots}
-              placeCard={placeCard}
-            />
-          </div>
-        )}
-        <div className={styles.field_btn}>
-          <input
-            type="button"
-            className={styles.subm_btn}
-            value={revealed ? "Continuar" : "Revelar"}
-            onClick={handleButtonClick}
-            disabled={!canReveal && !revealed}
-          />
-
-          <input type="button"
-            className={styles.reset_btn}
-            value="Reiniciar"
-            onClick={resetGame} />
-        </div>
+        <div className={styles.slot}>
+          <span className={styles.reading}>Futuro</span>
+          {slots.future && (<div className={`${styles.card} ${revealed ? styles.flipped : ""}`}>
+            <div className={styles.card_inner}>
+              <div className={`${styles.card_face} ${styles.card_back}`}>
+                <img src={slots.future.sakuraReverse} alt="Reverso" /> </div>
+              <div className={`${styles.card_face} ${styles.card_front}`}>
+                <img src={slots.future.sakuraCard} alt="Futuro" /> </div> </div> </div>)} </div>
       </div>
-    </>
-  );
-};
 
+      {deck.length > 0 && (
+        <div className={styles.deck_wrapper}>
+          <Deck
+            deck={deck}
+            onCardClick={placeCard}
+            onShuffle={shuffleDeck}
+            slots={slots}
+            placeCard={placeCard}
+          />
+        </div>
+      )}
+      <div className={styles.field_btn}>
+        <input
+          type="button"
+          className={styles.subm_btn}
+          value={revealed ? "Continuar" : "Revelar"}
+          onClick={handleButtonClick}
+          disabled={!canReveal && !revealed}
+        />
+
+        <input type="button"
+          className={styles.reset_btn}
+          value="Reiniciar"
+          onClick={resetGame} />
+      </div>
+    </div>
+  </>
+);
+}
 export default BoardCards;
