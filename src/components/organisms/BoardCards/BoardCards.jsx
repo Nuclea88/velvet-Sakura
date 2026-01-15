@@ -45,90 +45,94 @@ const BoardCards = () => {
   const shuffleDeck = () => {
     setDeck(prev => [...prev].sort(() => Math.random() - 0.5));
   };
-  
-  const handleButtonClick = () => {
-  if (!revealed) {
-    setRevealed(true);
-  } else {
-    navigate("/prueba",{
-        state:{
-            past:slots.past,
-            present:slots.present,
-            future:slots.future
-        }
-    });
-  }
-};
 
-const shuffleCards = () => {
+  const handleButtonClick = () => {
+    if (!revealed) {
+      setRevealed(true);
+    } else {
+      navigate("/prueba", {
+        state: {
+          past: slots.past,
+          present: slots.present,
+          future: slots.future
+        }
+      });
+    }
+  };
+
+  const shuffleCards = () => {
     const shuffled = [...deck].sort(() => Math.random() - 0.5);
     setCards(shuffled.slice(0, 3));
-}
+  }
 
-const resetGame = () => {
-  setSlots({
-    past: null,
-    present: null,
-    future: null
-  });
-  setDeck(deck);
-  setRevealed(false);
-  shuffleCards();
-};
+  const resetGame = () => {
+    setSlots({
+      past: null,
+      present: null,
+      future: null
+    });
+    setDeck(deck);
+    setRevealed(false);
+    shuffleCards();
+  };
   return (
     <>
-      <div className={styles.board}>
-  <div className={styles.slot}>
-    <span className={styles.reading}>Pasado</span> 
-    {slots.past && (<div className={`${styles.card} ${revealed ? styles.flipped : ""}`}> 
-        <div className={styles.card_inner}> 
-            <div className={`${styles.card_face} ${styles.card_back}`}> 
-                <img src={slots.past.sakuraReverse} alt="Reverso" /> </div> 
-                <div className={`${styles.card_face} ${styles.card_front}`}> 
-                    <img src={slots.past.sakuraCard} alt="Pasado" /> </div> </div> </div>)} </div>
+      <div className={styles.container_board}>
+        <div className={styles.board}>
+          <div className={styles.slot}>
+            <span className={styles.reading}>Pasado</span>
+            {slots.past && (<div className={`${styles.card} ${revealed ? styles.flipped : ""}`}>
+              <div className={styles.card_inner}>
+                <div className={`${styles.card_face} ${styles.card_back}`}>
+                  <img src={slots.past.sakuraReverse} alt="Reverso" /> </div>
+                <div className={`${styles.card_face} ${styles.card_front}`}>
+                  <img src={slots.past.sakuraCard} alt="Pasado" /> </div> </div> </div>)} </div>
 
-  <div className={styles.slot}> 
-    <span className={styles.reading}>Presente</span>
-    {slots.present && ( <div className={`${styles.card} ${revealed ? styles.flipped : ""}`}> 
-        <div className={styles.card_inner}> 
-            <div className={`${styles.card_face} ${styles.card_back}`}> 
-                <img src={slots.present.sakuraReverse} alt="Reverso" /> </div> 
-                <div className={`${styles.card_face} ${styles.card_front}`}> 
-                    <img src={slots.present.sakuraCard} alt="Presente" /> </div> </div> </div> )} </div>
+          <div className={styles.slot}>
+            <span className={styles.reading}>Presente</span>
+            {slots.present && (<div className={`${styles.card} ${revealed ? styles.flipped : ""}`}>
+              <div className={styles.card_inner}>
+                <div className={`${styles.card_face} ${styles.card_back}`}>
+                  <img src={slots.present.sakuraReverse} alt="Reverso" /> </div>
+                <div className={`${styles.card_face} ${styles.card_front}`}>
+                  <img src={slots.present.sakuraCard} alt="Presente" /> </div> </div> </div>)} </div>
 
-  <div className={styles.slot}> 
-    <span className={styles.reading}>Futuro</span>
-    {slots.future && ( <div className={`${styles.card} ${revealed ? styles.flipped : ""}`}> 
-        <div className={styles.card_inner}> 
-            <div className={`${styles.card_face} ${styles.card_back}`}> 
-            <img src={slots.future.sakuraReverse} alt="Reverso" /> </div> 
-            <div className={`${styles.card_face} ${styles.card_front}`}> 
-                <img src={slots.future.sakuraCard} alt="Futuro" /> </div> </div> </div> )} </div>
-      </div>
+          <div className={styles.slot}>
+            <span className={styles.reading}>Futuro</span>
+            {slots.future && (<div className={`${styles.card} ${revealed ? styles.flipped : ""}`}>
+              <div className={styles.card_inner}>
+                <div className={`${styles.card_face} ${styles.card_back}`}>
+                  <img src={slots.future.sakuraReverse} alt="Reverso" /> </div>
+                <div className={`${styles.card_face} ${styles.card_front}`}>
+                  <img src={slots.future.sakuraCard} alt="Futuro" /> </div> </div> </div>)} </div>
+        </div>
 
-      {deck.length > 0 && (
-        <Deck
-          deck={deck}
-          onCardClick={placeCard}
-          onShuffle={shuffleDeck}
-          slots={slots}
-          placeCard={placeCard}
-        />
-      )}
-      <div className={styles.field_btn}>         
+        {deck.length > 0 && (
+          <div className={styles.deck_wrapper}>
+            <Deck
+              deck={deck}
+              onCardClick={placeCard}
+              onShuffle={shuffleDeck}
+              slots={slots}
+              placeCard={placeCard}
+            />
+          </div>
+        )}
+        <div className={styles.field_btn}>
           <input
-        type="button"
-        className={styles.subm_btn}
-        value={revealed ? "Continuar" : "Revelar"}
-        onClick={handleButtonClick}
-        disabled={!canReveal && !revealed}
-      />
-       
-          <input type="button" 
-          className={styles.reset_btn} 
-          value="Reiniciar" 
-          onClick={ resetGame } /> 
-          </div> 
+            type="button"
+            className={styles.subm_btn}
+            value={revealed ? "Continuar" : "Revelar"}
+            onClick={handleButtonClick}
+            disabled={!canReveal && !revealed}
+          />
+
+          <input type="button"
+            className={styles.reset_btn}
+            value="Reiniciar"
+            onClick={resetGame} />
+        </div>
+      </div>
     </>
   );
 };
@@ -161,4 +165,3 @@ export default BoardCards;
 
 
 
-  
