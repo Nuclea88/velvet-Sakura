@@ -16,8 +16,9 @@ header{
 .main_title{
     color: black;
     font-weight: bold;
-    font-size: 16px;
+    font-size: clamp(20px, 20px, 24px);
     text-decoration: none;
+    cursor: pointer;
 }
 
 .subtitle_header{
@@ -55,7 +56,7 @@ header{
 
 .main_title{
     color: black;
-    font-size: 24px;
+    font-size: 40px;
     text-decoration: none;
 }
 

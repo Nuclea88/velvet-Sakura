@@ -5,6 +5,7 @@ import apiAccount from "../../../services/apiAccount";
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router";
 import Avatar from "../../../assets/images/profile_image.png";
+import useAuth from "../../../hooks/useAuth";
 
 function LogForm(){
     const [form, setForm] = useState({name: "", email: "", password:""})
@@ -12,6 +13,7 @@ function LogForm(){
     ])
     const dbAccount = apiAccount();
     const navigate = useNavigate();
+    const { login } = useAuth();
 
 
     useEffect(() => {
@@ -46,10 +48,12 @@ function LogForm(){
               alert("Contraseña incorrecta");
               return;
           }
-         const loggedUser = { name: form.name, avatar: Avatar };
-         localStorage.setItem("user", JSON.stringify(loggedUser));
-         window.dispatchEvent(new Event("storage"));
-        navigate("/prueba");
+         const loggedUser = { 
+            name: form.name, 
+            avatar: Avatar 
+        };
+        login(loggedUser);
+        navigate("/readings");
       } catch (error) {
         alert("Error al conectar con el servidor");
       }
@@ -70,7 +74,7 @@ function LogForm(){
             </div>
 
             <div className={styles.fieldbtn_form}>
-            <Button BtnClass="SubmBtn" text="Confirmar" path="" />
+            <Button BtnClass="subm_btn" text="Confirmar" path="" />
             <Link to="/register" className={styles.register}>Regístrate</Link>
             </div>
         </form>
