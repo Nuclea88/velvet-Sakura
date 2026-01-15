@@ -79,18 +79,9 @@
     },
     {
       "userId": "0",
-      "id": "2",
-      "date": "12.02.2026",
-      "name": "default2",
-      "pastCardId": "2",
-      "presentCardId": "23",
-      "futureCardId": "34"
-    },
-    {
-      "userId": "0",
       "id": "3",
       "date": "12.02.2026",
-      "name": "default2",
+      "name": "YAAAA",
       "pastCardId": "2",
       "presentCardId": "23",
       "futureCardId": "34"
@@ -134,15 +125,6 @@
     {
       "userId": "0",
       "id": "9",
-      "date": "12.02.2026",
-      "name": "default2",
-      "pastCardId": "2",
-      "presentCardId": "23",
-      "futureCardId": "34"
-    },
-    {
-      "userId": "0",
-      "id": "10",
       "date": "12.02.2026",
       "name": "default2",
       "pastCardId": "2",

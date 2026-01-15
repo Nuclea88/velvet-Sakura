@@ -36,9 +36,9 @@ return(
     </section>
     ):(
          <section className= {styles.no_cards}>
-            <img src="/src/assets/images/Momo.jpg" alt="Relax"/>
+            <img className={styles.img_no_cards} src="/src/assets/images/Momo.jpg" alt="Relax"/>
             <p> No hay lecturas guardadas. Revela ahora tu destino.</p>
-            <Button BtnClass="subm_btn" path={() => navigate("/")} text= "Inicio" />
+            <Button BtnClass="subm_btn" path="/readings" text= "Inicio" />
          </section>
         
     )}

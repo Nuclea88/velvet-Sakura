@@ -1,10 +1,10 @@
-import DeleteButton from "../deleteButton.jsx/deleteButton.jsx";
 import EditButton from "../../atoms/editButton/EditButton.jsx";
 import styles from "./reading-card.module.css";
 import { useState } from "react";
 import CheckButton from "../../atoms/checkButton/CheckButton.jsx";
 import apiReading from "../../../services/apiReading.jsx";
 import { useNavigate } from "react-router";
+import DeleteButton from "../deleteButton/DeleteButton.jsx";
 
 const ReadingCard = ({data, onDelete}) =>{
     const [isEditing, setIsEditing] = useState(false);
@@ -33,7 +33,7 @@ const navigate = useNavigate();
     const db = apiReading();
 
     const handleSave = () => {
-        db.editName(data.Id, tempName).then(() => {
+        db.editName(data.id, tempName).then(() => {
         setIsEditing(false)
         })
         .catch((err) => {
@@ -63,7 +63,7 @@ const navigate = useNavigate();
                 <span>{tempName}</span>
                 </>)}
             </div>
-            <DeleteButton id={data.Id} onDelete={onDelete} /> 
+            <DeleteButton id={data.id} onDelete={onDelete} /> 
         </div>
     )
 }
