@@ -1,4 +1,4 @@
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { useState } from "react";
 import styles from "./tarot-deck.module.css";
 import Button from "../../atoms/Button/Button";
@@ -16,7 +16,7 @@ const TarotDeck = ({user}) => {
   const [readingName, setReadingName] = useState("");
   const dbReadings=apiSave();
   const [isMobile, setIsMobile] = useState(false);
-
+  const navigate=useNavigate();
 
   useEffect(() => {
   const checkMobile = () => setIsMobile(window.innerWidth <= 768);
@@ -77,6 +77,8 @@ const handleSave = async () => {
     setReadingName("");
 
     alert("Lectura guardada correctamente");
+
+    navigate("/prueba")
 
   } catch (error) {
     console.error(error);
