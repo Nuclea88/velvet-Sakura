@@ -18,7 +18,7 @@ const navigate = useNavigate();
     };
 
     const handleButtonClick = () => {
-        navigate("/prueba",{
+        navigate("/profile",{
             state: {
             past: data.pastCardId,
             present: data.presentCardId,
@@ -26,9 +26,6 @@ const navigate = useNavigate();
             }
         });
     }
-
-
-
 
     const db = apiReading();
 

@@ -1,5 +1,5 @@
 import styles from "./tarot-results.module.css";
-import TarotDeck from "../../components/organisms/TarotResults/TarotDeck";
+import TarotDeck from "../../components/organisms/TarotDeck/TarotDeck";
 import useAuth from "../../hooks/useAuth";
 
 export default function TarotResult() {
