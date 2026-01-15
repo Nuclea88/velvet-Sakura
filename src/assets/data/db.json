@@ -69,67 +69,31 @@
   ],
   "readings": [
     {
+      "id": "1f935961-358e-4de8-95aa-bf0abadc6517",
       "userId": "0",
-      "id": "1",
-      "date": "12.02.2026",
-      "name": "default2",
-      "pastCardId": "2",
-      "presentCardId": "23",
-      "futureCardId": "34"
+      "date": "2026-01-14T17:56:24.589Z",
+      "name": "partida1",
+      "pastCardId": "25",
+      "presentCardId": "24",
+      "futureCardId": "23"
     },
     {
-      "userId": "0",
-      "id": "3",
-      "date": "12.02.2026",
-      "name": "YAAAA",
-      "pastCardId": "2",
-      "presentCardId": "23",
-      "futureCardId": "34"
+      "id": "19048504-8513-4dcf-bde4-37302c3f4258",
+      "userId": "4e06",
+      "date": "2026-01-14T17:58:01.646Z",
+      "name": "partida1",
+      "pastCardId": "25",
+      "presentCardId": "22",
+      "futureCardId": "21"
     },
     {
-      "userId": "0",
-      "id": "5",
-      "date": "12.02.2026",
-      "name": "hola",
-      "pastCardId": "2",
-      "presentCardId": "23",
-      "futureCardId": "34"
-    },
-    {
-      "userId": "0",
-      "id": "6",
-      "date": "12.02.2026",
-      "name": "default2",
-      "pastCardId": "2",
-      "presentCardId": "23",
-      "futureCardId": "34"
-    },
-    {
-      "userId": "0",
-      "id": "7",
-      "date": "12.02.2026",
-      "name": "default2",
-      "pastCardId": "2",
-      "presentCardId": "23",
-      "futureCardId": "34"
-    },
-    {
-      "userId": "0",
-      "id": "8",
-      "date": "12.02.2026",
-      "name": "default2",
-      "pastCardId": "2",
-      "presentCardId": "23",
-      "futureCardId": "34"
-    },
-    {
-      "userId": "0",
-      "id": "9",
-      "date": "12.02.2026",
-      "name": "default2",
-      "pastCardId": "2",
-      "presentCardId": "23",
-      "futureCardId": "34"
+      "id": "3c94269f-b5be-4d95-9f66-3fd716e55fb2",
+      "userId": "4e06",
+      "date": "2026-01-14T18:02:23.509Z",
+      "name": "partidamovil",
+      "pastCardId": "3",
+      "presentCardId": "2",
+      "futureCardId": "4"
     }
   ]
 }
