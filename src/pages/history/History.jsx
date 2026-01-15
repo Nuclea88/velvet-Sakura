@@ -42,7 +42,7 @@ import { checkNameExists } from "../../services/checkName";
          <main>
           <header className={styles.header_section}>
             <div>
-            <h3>Bienvenida {tempName} a tu historial de lecturas</h3>
+            <h3>Bienvenida, {tempName}, a tu historial de lecturas</h3>
             <p>Para eliminar una lectura haz click en Eliminar</p>
             <p>Para borrar el historial haz click en Borrar</p>
             </div>

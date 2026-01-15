@@ -43,6 +43,19 @@ header{
 .logout_icon:hover{
     color:red;
 }
+.invisible_button{
+    background: none;
+    border: none;
+    padding: 5px;
+    margin: 0;
+    font: inherit;       
+    color: inherit;    
+    outline: none;
+    
+    font-weight: bold;
+    text-decoration: underline; 
+    transition: opacity 0.2s ease;
+}
 
 
 @media (min-width:1200px){
@@ -91,19 +104,5 @@ header{
     font-weight: bold;
     font-size: 16px;
     text-align: center;
-}
-
-.invisible_button{
-    background: none;
-    border: none !important;
-    padding: 0;
-    margin: 0;
-    font: inherit;       
-    color: inherit;    
-    outline: none;
-    
-    font-weight: bold;
-    text-decoration: underline; 
-    transition: opacity 0.2s ease;
 }
 }
