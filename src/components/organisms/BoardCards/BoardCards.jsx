@@ -7,6 +7,7 @@ import { useNavigate } from "react-router";
 
 const BoardCards = () => {
   const [deck, setDeck] = useState([]);
+  const [masterDeck, setMasterDeck] = useState([]);
   const navigate = useNavigate();
   const [slots, setSlots] = useState({
     past: null,
@@ -21,13 +22,13 @@ const BoardCards = () => {
       try {
         const data = await apiSakura().getDeck();
         setDeck(data);
+        setMasterDeck(data);
       } catch (error) {
         console.error("Error cargando el mazo:", error);
       }
     };
     loadData();
   }, []);
-
 
   const placeCard = (card) => {
     if (slots.past && slots.present && slots.future) return;
@@ -42,8 +43,9 @@ const BoardCards = () => {
     setDeck(prev => prev.filter(c => c.id !== card.id));
   };
 
-  const shuffleDeck = () => {
-    setDeck(prev => [...prev].sort(() => Math.random() - 0.5));
+  const shuffleDeck = (newDeck) => {
+    const deckToShuffle = newDeck ? [...newDeck] : deck;
+    setDeck([...deckToShuffle].sort(() => Math.random() - 0.5));
   };
 
   const handleButtonClick = () => {
@@ -60,20 +62,14 @@ const BoardCards = () => {
     }
   };
 
-  const shuffleCards = () => {
-    const shuffled = [...deck].sort(() => Math.random() - 0.5);
-    setCards(shuffled.slice(0, 3));
-  }
-
   const resetGame = () => {
     setSlots({
       past: null,
       present: null,
       future: null
     });
-    setDeck(deck);
     setRevealed(false);
-    shuffleCards();
+    shuffleDeck(masterDeck);
   };
   return (
     <>
@@ -138,30 +134,3 @@ const BoardCards = () => {
 };
 
 export default BoardCards;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
