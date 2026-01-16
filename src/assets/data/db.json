@@ -1,88 +1,13 @@
 {
   "accounts": [
     {
-      "id": "0e8a",
-      "name": "Nucla0",
-      "email": "patata@hotmail.com",
-      "password": "12345678"
-    },
-    {
       "id": "4e06",
       "name": "Jenny",
       "email": "patata1@hotmail.com",
       "password": "12345678"
-    },
-    {
-      "id": "dafc",
-      "name": "Jenny 1234",
-      "email": "hola@hotmail.com",
-      "password": "12345678"
-    },
-    {
-      "name": "Nuclea",
-      "id": "0",
-      "email": "hola@hotmail.com",
-      "password": "12345678"
-    },
-    {
-      "id": "1",
-      "name": "Lorena",
-      "email": "Lorena@gmail.com",
-      "password": "12345678"
-    },
-    {
-      "id": "da66",
-      "name": "Lorena1",
-      "email": "Lorena1@gmail.com",
-      "password": "12345678"
-    },
-    {
-      "id": "57a0",
-      "name": "hola",
-      "email": "holaholita@gmail.com",
-      "password": "12345678"
-    },
-    {
-      "id": "3262",
-      "name": "Jennifer",
-      "email": "patatita@gmail.com",
-      "password": "12345678"
-    },
-    {
-      "id": "2210",
-      "name": "patatito",
-      "email": "patatito@gmail.com",
-      "password": "12345678"
-    },
-    {
-      "id": "3e0a",
-      "name": "prueba1",
-      "email": "prueba1@gmail.com",
-      "password": "12345678"
-    },
-    {
-      "id": "0946",
-      "name": "prueba2",
-      "email": "prueba2@gmail.com",
-      "password": "12345678"
-    },
-    {
-      "id": "af0d",
-      "name": "prueba3",
-      "email": "pruebita@gmail.com",
-      "password": "12345678"
     }
   ],
   "readings": [
-    {
-      "id": "1f935961-358e-4de8-95aa-bf0abadc6517",
-      "userId": "0",
-      "date": "2026-01-14T17:56:24.589Z",
-      "name": "partida1",
-      "pastCardId": "25",
-      "presentCardId": "24",
-      "futureCardId": "23"
-    },
     {
       "id": "4ac9f9a5-0600-4bf3-9828-ae03a3879c86",
       "userId": "4e06",
@@ -100,14 +25,6 @@
       "pastCardId": "55",
       "presentCardId": "54",
       "futureCardId": "53"
-    },
-    {
-      "id": "0fc341a7-dee1-44e2-84c9-04102252861e",
-      "date": "16 de enero 2026, 09:56",
-      "name": "prueba",
-      "pastCardId": "15",
-      "presentCardId": "16",
-      "futureCardId": "43"
     },
     {
       "id": "6b9cc883-8d8a-4ca1-8430-85e3f3f45791",

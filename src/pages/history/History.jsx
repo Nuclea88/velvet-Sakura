@@ -1,11 +1,12 @@
 import { useState } from "react";
-import EditButton from "../../components/atoms/editButton/EditButton";
-import HistoryCards from "../../components/organisms/historyCards/HistoryCards";
 import styles from "./history.module.css";
-import CheckButton from "../../components/atoms/checkButton/CheckButton";
 import apiAccount from "../../services/apiAccount";
 import useAuth from "../../hooks/useAuth";
 import { checkNameExists } from "../../services/checkName";
+import CheckButton from "../../components/atoms/checkButton/CheckButton";
+import EditButton from "../../components/atoms/EditButton/EditButton";
+import HistoryCards from "../../components/organisms/historyCards/HistoryCards";
+
 
  const History = () => {
     const {user, login} = useAuth();
