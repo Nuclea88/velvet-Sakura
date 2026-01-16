@@ -8,8 +8,6 @@ El proyecto combina una experiencia visual delicada con una arquitectura clara, 
 
 ## Vista previa del proyecto
 
-> *(Las siguientes imágenes muestran algunas pantallas clave de la aplicación)*
-
 ### Home
 ![Home](docs/images/home.png)
 
@@ -97,15 +95,17 @@ src/
 ├── services/
 ├── index.css 
 ├── main.jsx
-├── hooks/ ????
+├── hooks/
 ├── utils/
 ├── tests/
+```
 
 logic/ → lógica pura y testeable
 services/ → comunicación con la API
 components/ → UI
 tests/ → tests unitarios
 
+## Instalación y uso local
 # Clonar el repositorio
 git clone https://github.com/tu-usuario/velvet-sakura.git
 
