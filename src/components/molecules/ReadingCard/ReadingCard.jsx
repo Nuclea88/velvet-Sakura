@@ -46,7 +46,7 @@ const navigate = useNavigate();
 
     return( 
        <div className={styles.cardContainer}>
-            <img src="src/assets/images/historial.png" alt="iconoHistorial" onClick={handleButtonClick}></img>
+            <img src="src/assets/images/historial.png" alt="icono Historial" onClick={handleButtonClick} className={styles.img_card} title="Cartas guardadas"/>
             <p>{data.date}</p>
             <div className={styles.nameRow}>
                 {isEditing ? (
