@@ -104,22 +104,13 @@
       "futureCardId": "43"
     },
     {
-      "id": "7bc17bd1-5b89-4071-8c0c-39eda6f4f344",
+      "id": "6b9cc883-8d8a-4ca1-8430-85e3f3f45791",
       "userId": "4e06",
-      "date": "16 de enero 2026, 09:58",
-      "name": "prueba2",
-      "pastCardId": "26",
-      "presentCardId": "27",
-      "futureCardId": "30"
-    },
-    {
-      "id": "e7e05651-e347-4409-a6ab-e46277567fe4",
-      "userId": "4e06",
-      "date": "16 de enero 2026, 09:58",
-      "name": "regreso/pelea/flor",
-      "pastCardId": "29",
-      "presentCardId": "22",
-      "futureCardId": "12"
+      "date": "16 de enero 2026, 10:37",
+      "name": "fallo Api",
+      "pastCardId": "55",
+      "presentCardId": "54",
+      "futureCardId": "53"
     }
   ]
 }
