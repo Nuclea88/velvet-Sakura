@@ -1,17 +1,3 @@
-/*.pen{
-
-box-sizing: border-box;
-
-position: absolute;
-height: 66px;
-left: 66.83%;
-right: 31.16%;
-top: 645px;
-
-background: url(pen.png);
-border: 1px solid #000000;}*/
-
-
 .cardContainer {
     display: flex;
     align-items: center; 
@@ -29,7 +15,24 @@ border: 1px solid #000000;}*/
 .nameRow {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 5px;   
     padding-bottom: 25px;         
 }
+.editInput{
+    border: 1px solid border-soft;
+    margin-left: 60px;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 1rem;       
+    font-family: inherit;  
+    background-color: cream-white;
+    width: 150px;         
+    outline: none;        
+    transition: all 0.2s ease;
 
+}
+
+.img_card{
+    cursor: pointer;
+}

@@ -1,13 +1,12 @@
 import { createBrowserRouter } from "react-router";
 import Layout from "../layout/Layout";
 import Home from "../pages/Home/Home";
-import Prueba from "../pages/prueba"; // esto se borra al final
 import Register from "../pages/Register/Register";
 import Info from "../pages/DataResults/DataResults";
 import Start from "../pages/Start/Start";
 import TarotResult from "../pages/TarotResults/TarotResult";
-
 import History from "../pages/history/History";
+import ProfileReading from "../pages/ProfileReading/ProfileReading";
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -16,10 +15,6 @@ export const router = createBrowserRouter([
             {
             index: true,
             Component: Home
-            },
-            {
-            path: "/prueba",
-            Component: Prueba
             },
             {
             path: "/register",
@@ -40,6 +35,10 @@ export const router = createBrowserRouter([
             {
             path:"/history",
             Component: History
+            },
+            {
+            path:"/profile",
+            Component: ProfileReading    
             }
             ]
     }
