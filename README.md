@@ -100,20 +100,15 @@ src/
 ├── tests/
 ```
 
-logic/ → lógica pura y testeable
-services/ → comunicación con la API
-components/ → UI
-tests/ → tests unitarios
-
 ## Instalación y uso local
-# Clonar el repositorio
+### Clonar el repositorio
 git clone https://github.com/tu-usuario/velvet-sakura.git
 
-# Entrar al proyecto
+### Entrar al proyecto
 cd velvet-sakura
 
-# Instalar dependencias
+### Instalar dependencias
 npm install
 
-# Ejecutar en local
+### Ejecutar en local
 npm run dev
