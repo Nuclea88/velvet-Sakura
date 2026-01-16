@@ -1,16 +1,119 @@
-# React + Vite
+# Velvet Sakura
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Velvet Sakura es una aplicación web interactiva inspirada en el tarot, creada para explorar lógica de programación, consumo de APIs y buenas prácticas de desarrollo frontend.
 
-Currently, two official plugins are available:
+El proyecto combina una experiencia visual delicada con una arquitectura clara, enfocada en separación de responsabilidades, lógica reutilizable y validación de datos.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Vista previa del proyecto
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+> *(Las siguientes imágenes muestran algunas pantallas clave de la aplicación)*
 
-## Expanding the ESLint configuration
+### Home
+![Home](docs/images/home.png)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Selección de cartas
+![Cards](docs/images/cards.png)
+
+---
+
+## Concepto del proyecto
+
+Velvet Sakura permite al usuario realizar una tirada de tarot de **pasado, presente y futuro**, obteniendo cartas seleccionadas de forma aleatoria a partir de un mazo consumido desde una API externa.
+
+El objetivo principal del proyecto fue:
+- Practicar consumo de APIs
+- Diseñar lógica desacoplada de la interfaz
+- Aplicar tests unitarios reales
+- Validar flujos y respuestas de datos
+
+---
+
+## Tecnologías utilizadas
+
+- **JavaScript (ES6+)**
+- **React**
+- **Vite**
+- **CSS**
+- **API REST**
+- **Postman**
+- **Tests unitarios (Vitest / Jest)**
+
+---
+
+## Consumo de API
+
+La aplicación consume una API de cartas de tarot para obtener el mazo completo y realizar la selección dinámica de cartas.
+
+Antes de integrar la API en la aplicación:
+- Se validaron los endpoints
+- Se analizaron las respuestas
+- Se verificó la estructura de los datos
+
+### Validación con Postman
+![Postman](docs/images/postman.png)
+
+Postman fue utilizado para:
+- Probar peticiones GET
+- Validar la consistencia de los datos
+- Simular escenarios antes de integrarlos en el frontend
+
+---
+
+## Tests unitarios
+
+La lógica principal del proyecto fue desacoplada de los componentes para permitir **tests unitarios reales**, enfocados en comportamiento y no en la UI.
+
+### Funciones testeadas:
+- Selección aleatoria de cartas
+- Validación del mazo
+- Asignación de posiciones (pasado, presente, futuro)
+
+![Tests](docs/images/tests.png)
+
+Esto permite:
+- Detectar errores temprano
+- Asegurar consistencia en la lógica
+- Facilitar refactorización futura
+
+---
+
+## Estructura del proyecto
+
+```bash
+├── favicon
+src/
+├── assets/
+│   ├── data/
+│      ├── db.json
+├── components/
+│   ├── atoms/
+│   ├── molecules/
+│   ├── organisms/
+├── layout/
+├── pages/
+├── router/
+├── services/
+├── index.css 
+├── main.jsx
+├── hooks/ ????
+├── utils/
+├── tests/
+
+logic/ → lógica pura y testeable
+services/ → comunicación con la API
+components/ → UI
+tests/ → tests unitarios
+
+# Clonar el repositorio
+git clone https://github.com/tu-usuario/velvet-sakura.git
+
+# Entrar al proyecto
+cd velvet-sakura
+
+# Instalar dependencias
+npm install
+
+# Ejecutar en local
+npm run dev
