@@ -8,7 +8,7 @@
     },
     {
       "id": "4e06",
-      "name": "Jenny1",
+      "name": "Jenny",
       "email": "patata1@hotmail.com",
       "password": "12345678"
     },
@@ -78,65 +78,39 @@
       "futureCardId": "23"
     },
     {
-      "id": "19048504-8513-4dcf-bde4-37302c3f4258",
+      "id": "4ac9f9a5-0600-4bf3-9828-ae03a3879c86",
       "userId": "4e06",
-      "date": "2026-01-14T17:58:01.646Z",
-      "name": "partida1",
-      "pastCardId": "25",
-      "presentCardId": "22",
-      "futureCardId": "21"
-    },
-    {
-      "id": "3c94269f-b5be-4d95-9f66-3fd716e55fb2",
-      "userId": "4e06",
-      "date": "2026-01-14T18:02:23.509Z",
-      "name": "partidamovil",
-      "pastCardId": "3",
-      "presentCardId": "2",
-      "futureCardId": "4"
-    },
-    {
-      "id": "e04e61fd-e47a-4f7f-b897-b658163149f1",
-      "userId": "0",
-      "date": "2026-01-15T11:27:05.991Z",
-      "name": "Prueba1",
-      "pastCardId": "8",
-      "presentCardId": "4",
-      "futureCardId": "51"
-    },
-    {
-      "id": "0937544a-3eed-41d7-a73f-77ebca3caa91",
-      "userId": "0",
-      "date": "2026-01-15T11:28:18.180Z",
-      "name": "ARO NO",
-      "pastCardId": "27",
-      "presentCardId": "23",
-      "futureCardId": "14"
-    },
-    {
-      "id": "35c534a0-05ce-455d-8caf-2c74a1234f12",
-      "date": "2026-01-15T11:31:57.582Z",
-      "name": "ddd",
-      "pastCardId": "25",
-      "presentCardId": "24",
-      "futureCardId": "22"
-    },
-    {
-      "id": "b3099265-865a-4736-a501-dfe3d79be767",
-      "userId": "0",
-      "date": "2026-01-15T11:32:21.406Z",
-      "name": "uuuu",
-      "pastCardId": "27",
-      "presentCardId": "24",
-      "futureCardId": "22"
-    },
-    {
-      "id": "1699ea71-8bb0-4580-b82c-71597f37c404",
-      "date": "2026-01-15T11:33:07.649Z",
-      "name": "esto no sale",
+      "date": "15 de enero 2026, 20:28",
+      "name": "pequeño/dormir/aro",
       "pastCardId": "26",
-      "presentCardId": "25",
-      "futureCardId": "22"
+      "presentCardId": "24",
+      "futureCardId": "23"
+    },
+    {
+      "id": "25271a0d-41d0-4e20-9e90-bce3cc3bf0a6",
+      "userId": "4e06",
+      "date": "16 de enero 2026, 08:05",
+      "name": "partida1",
+      "pastCardId": "55",
+      "presentCardId": "54",
+      "futureCardId": "53"
+    },
+    {
+      "id": "0fc341a7-dee1-44e2-84c9-04102252861e",
+      "date": "16 de enero 2026, 09:56",
+      "name": "prueba",
+      "pastCardId": "15",
+      "presentCardId": "16",
+      "futureCardId": "43"
+    },
+    {
+      "id": "6b9cc883-8d8a-4ca1-8430-85e3f3f45791",
+      "userId": "4e06",
+      "date": "16 de enero 2026, 10:37",
+      "name": "fallo Api",
+      "pastCardId": "55",
+      "presentCardId": "54",
+      "futureCardId": "53"
     }
   ]
 }

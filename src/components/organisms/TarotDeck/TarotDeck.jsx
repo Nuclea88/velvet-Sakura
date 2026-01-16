@@ -6,6 +6,8 @@ import ArrowLeft from "../../../assets/images/flecha_izquierda.png";
 import ArrowRight from "../../../assets/images/flecha_derecha.png";
 import apiSave from "../../../services/apiSave";
 import { useEffect } from "react";
+import { format } from "date-fns";
+import { es } from "date-fns/locale";
 
 
 
@@ -17,6 +19,8 @@ const TarotDeck = ({user}) => {
   const dbReadings=apiSave();
   const [isMobile, setIsMobile] = useState(false);
   const navigate=useNavigate();
+  const actualDate = new Date();
+  const savedDate=format(actualDate, "dd 'de' MMMM yyyy, HH:mm", {locale:es})
 
   useEffect(() => {
   const checkMobile = () => setIsMobile(window.innerWidth <= 768);
@@ -61,7 +65,7 @@ const handleSave = async () => {
   const dataReading = {
     userId: user?.id,
     id: crypto.randomUUID(),
-    date: new Date().toISOString(),
+    date: savedDate,
     name: readingName,
     pastCardId: past.id,
     presentCardId: present.id,
@@ -220,131 +224,3 @@ const handleSave = async () => {
 };
 
 export default TarotDeck;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*<section className={styles.container}>
-      <div className={styles.header}>
-        <h2>El sino es revelado</h2>
-      </div>
-
-      <div className={styles.desktop}>
-        {cards.map((card, index) => (
-          <div key={card.id} className={styles.card_block}>
-            <h3 className={styles.card_title}>{getStageLabel(index)}</h3>
-
-            <img
-              src={past.sakuraCard}
-              alt={past.spanishName}
-              className={styles.card_image}
-            />
-
-            <p className={styles.description}>{card.meaning}</p>
-          </div>
-        ))}
-      </div>
-
-      <div className={styles.mobile}>
-        {cards.length > 0 && (
-          <>
-            <h3 className={styles.card_title}>{getStageLabel(currentIndex)}</h3>
-
-            <div className={styles.mobile_card}>
-              <button
-                className={styles.arrow_left}
-                onClick={handlePrev}
-                aria-label="Carta anterior"
-              >
-                ◀
-              </button>
-
-              <img
-                src={cards[currentIndex].sakuraCard}
-                alt={cards[currentIndex].spanishName}
-                className={styles.card_image}
-              />
-
-              <button
-                className={styles.arrow_right}
-                onClick={handleNext}
-                aria-label="Siguiente carta"
-              >
-                ▶
-              </button>
-            </div>
-
-            <p className={styles.description}>{cards[currentIndex].meaning}</p>
-          </>
-        )}
-      </div>
-
-      <div className={styles.actions}>
-        <Button text="Guardar" BtnClass="subm_btn" path="/register" />
-
-        <Button text="Reiniciar" BtnClass="subm_btn" path="/" />
-      </div>
-    </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   /* <div style={{display:"flex"}}>
-      <h2>Resultado de la tirada</h2>
-
-      <div>
-        <h3>Pasado</h3>
-        <p>{past.spanishName}</p>
-        <img src={past.sakuraCard} />
-        <p>{past.meaning}</p>
-        <p>{past.id}</p>
-      </div>
-
-      <div>
-        <h3>Presente</h3>
-        <p>{present.spanishName}</p>
-        <img src={present.sakuraCard} />
-        <p>{present.meaning}</p>
-        <p>{present.id}</p>
-      </div>
-
-      <div>
-        <h3>Futuro</h3>
-        <p>{future.spanishName}</p>
-        <img src={future.sakuraCard} />
-        <p>{future.meaning}</p>
-        <p>{future.id}</p>
-      </div>
-    </div>*/
- 
