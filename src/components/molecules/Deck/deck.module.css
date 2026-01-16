@@ -97,7 +97,6 @@
   height: 300px;
   text-align: center;
   position: relative;
-  /*overflow: hidden;*/
 }
 
 .banner .deck_desktop {
@@ -107,7 +106,6 @@
   top: 10%;
   left: calc(50% - 100px);
   transform-style: preserve-3d;
-  /*transform: perspective(1000px) translateZ(-300px);*/
   transform: translateX(-50%);
   animation: auto-rotate 20s linear infinite;
   z-index: 2;
@@ -129,7 +127,6 @@
   transform: rotateY(
       calc((var(--position) - 1) * (360 / var(--quantity) * 1deg))
     )
-    /*translateZ(100dvw); /*para ampliar el radio*/
     translateZ(2000px);
   transition: all 0.3s linear;
 }
