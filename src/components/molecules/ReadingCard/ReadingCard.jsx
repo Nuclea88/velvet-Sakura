@@ -1,9 +1,9 @@
-import EditButton from "../../atoms/editButton/EditButton.jsx";
+import EditButton from "../../atoms/EditButton/EditButton.jsx";
 import styles from "./reading-card.module.css";
 import { useState } from "react";
-import CheckButton from "../../atoms/checkButton/CheckButton.jsx";
 import apiReading from "../../../services/apiReading.jsx";
 import { useNavigate } from "react-router";
+import CheckButton from "../../atoms/checkButton/CheckButton.jsx";
 import DeleteButton from "../deleteButton/DeleteButton.jsx";
 
 const ReadingCard = ({data, onDelete}) =>{
