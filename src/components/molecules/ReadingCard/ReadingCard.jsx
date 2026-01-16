@@ -29,9 +29,6 @@ const navigate = useNavigate();
         });
     }
 
-
-
-
     const db = apiReading();
 
     const handleSave = () => {
