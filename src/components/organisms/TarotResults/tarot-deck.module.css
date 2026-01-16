@@ -162,6 +162,13 @@
 .reset_btn:active{
     border-color: black;
 }
+
+.mobile_card{
+  position:relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 @media (max-width: 768px) {
   .desktop {
     display: none;
@@ -191,7 +198,7 @@
     cursor: pointer;
     position: absolute;
     top:43%;
-    left:5%;
+    left:-50%;
   }
 
   .arrow_right{
@@ -200,7 +207,7 @@
     cursor: pointer;
     position: absolute;
     top:43%;
-    right:5%;
+    right:-50%;
   }
 
   .card_name{

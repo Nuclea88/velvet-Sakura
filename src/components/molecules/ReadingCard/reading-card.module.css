@@ -1,17 +1,3 @@
-/*.pen{
-
-box-sizing: border-box;
-
-position: absolute;
-height: 66px;
-left: 66.83%;
-right: 31.16%;
-top: 645px;
-
-background: url(pen.png);
-border: 1px solid #000000;}*/
-
-
 .cardContainer {
     display: flex;
     align-items: center; 

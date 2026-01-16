@@ -15,34 +15,50 @@ const BoardCards = () => {
     future: null
   });
 
+
   const canReveal = slots.past && slots.present && slots.future;
   const [revealed, setRevealed] = useState(false);
 
   useEffect(() => {
-    const loadData = async () => {
-      try {
-        const data = await apiSakura().getDeck();
-        setDeck(data);
-        setMasterDeck(data);
-      } catch (error) {
-        console.error("Error cargando el mazo:", error);
-      }
-    };
-    loadData();
-  }, []);
+  const loadData = async () => {
+    try {
+      const data = await apiSakura().getDeck();
+      const uniqueDeck = Object.values(
+        data.reduce((acc, card) => {
+          acc[card.id] = card;
+          return acc;
+        }, {})
+      );
+
+      setDeck(uniqueDeck);
+      setMasterDeck(uniqueDeck);
+    } catch (error) {
+      console.error("Error cargando el mazo:", error);
+    }
+  };
+
+  loadData();
+}, []);
 
   const placeCard = (card) => {
-    if (slots.past && slots.present && slots.future) return;
+  const usedIds = [
+    slots.past?.id,
+    slots.present?.id,
+    slots.future?.id
+  ];
+  if (usedIds.includes(card.id)) return;
+  if (slots.past && slots.present && slots.future) return;
 
-    setSlots(prev => {
-      if (!prev.past) return { ...prev, past: card };
-      if (!prev.present) return { ...prev, present: card };
-      if (!prev.future) return { ...prev, future: card };
-      return prev;
-    });
+  setSlots(prev => {
+    if (!prev.past) return { ...prev, past: card };
+    if (!prev.present) return { ...prev, present: card };
+    if (!prev.future) return { ...prev, future: card };
+    return prev;
+  });
 
-    setDeck(prev => prev.filter(c => c.id !== card.id));
-  };
+  setDeck(prev => prev.filter(c => c.id !== card.id));
+};
+
 
   const handleButtonClick = () => {
     if (!revealed) {
@@ -58,18 +74,10 @@ const BoardCards = () => {
     }
   };
 
-  /*const resetGame = () => {
-    setSlots({
-      past: null,
-      present: null,
-      future: null
-    });
-  }*/
-
 const shuffleDeck = (newDeck) => {
-  const deckToShuffle = newDeck ? [...newDeck] : deck;
-  setDeck[[...deckToShuffle].sort(() => Math.random() - 0.5)];
-}
+  const deckToShuffle = newDeck ? [...newDeck] : [...deck];
+  setDeck(deckToShuffle.sort(() => Math.random() - 0.5));
+};
 
 const resetGame = () => {
   setSlots({
