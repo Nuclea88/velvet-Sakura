@@ -1,0 +1,22 @@
+
+.subm_btn {
+    width:173px;
+    height: 54px;
+    background: transparent; 
+    border: 2px dashed rgba(0, 0, 0,0.10); 
+    border-radius: 20px;
+    cursor: pointer;
+    transition: transform 0.25s ease;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.subm_btn:hover {
+    transform: scale(1.03);
+}
+
+.subm_btn:active {
+    transform: scale(0.98);
+}
+
+
