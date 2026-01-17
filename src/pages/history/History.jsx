@@ -3,10 +3,9 @@ import styles from "./history.module.css";
 import apiAccount from "../../services/apiAccount";
 import useAuth from "../../hooks/useAuth";
 import { checkNameExists } from "../../services/checkName";
-import CheckButton from "../../components/atoms/checkButton/CheckButton";
 import EditButton from "../../components/atoms/EditButton/EditButton";
-import HistoryCards from "../../components/organisms/historyCards/HistoryCards";
-
+import CheckButton from "../../components/atoms/CheckButton/CheckButton";
+import HistoryCards from "../../components/organisms/HistoryCards/HistoryCards";
 
  const History = () => {
     const {user, login} = useAuth();

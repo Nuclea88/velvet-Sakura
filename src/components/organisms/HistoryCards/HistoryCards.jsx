@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 import ReadingCard from "../../molecules/ReadingCard/ReadingCard";
 import styles from "./history-cards.module.css"
 import Button from "../../atoms/Button/Button";
-import DropButton from "../../molecules/dropButton/DropButton";
+import DropButton from "../../molecules/DropButton/DropButton";
 
 const HistoryCards = ({userId}) => {
     const [reading,setReading]= useState([]);
